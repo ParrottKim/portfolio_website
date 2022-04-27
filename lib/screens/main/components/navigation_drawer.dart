@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/providers/screen_provider.dart';
 import 'package:portfolio_website/screens/main/components/main_logo.dart';
-import 'package:portfolio_website/services/fade_animation.dart';
+import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:provider/provider.dart';
 
 class NavigationDrawer extends StatefulWidget {

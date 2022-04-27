@@ -22,6 +22,11 @@ class _MainScreenState extends State<MainScreen> {
   double _position = 1;
   double _opacity = 0;
 
+  void _precachingImages() {
+    precacheImage(const AssetImage('assets/images/background1.jpg'), context);
+    precacheImage(const AssetImage('assets/images/background2.jpg'), context);
+  }
+
   void _updatePageState() {
     setState(
         () => _position = _screenProvider.pageController.position.pixels.abs());
@@ -32,6 +37,7 @@ class _MainScreenState extends State<MainScreen> {
     super.didChangeDependencies();
     _screenProvider = Provider.of<ScreenProvider>(context, listen: false);
     _screenProvider.pageController.addListener(_updatePageState);
+    _precachingImages();
   }
 
   @override

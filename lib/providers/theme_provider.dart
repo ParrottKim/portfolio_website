@@ -26,35 +26,36 @@ ThemeData light = ThemeData(
     selectedTileColor: Colors.grey[200],
   ),
   canvasColor: Colors.blueGrey[100],
-  scaffoldBackgroundColor: Colors.blueGrey[50],
+  scaffoldBackgroundColor: Color(0xFFEEEEEE),
 );
 
 ThemeData dark = ThemeData(
-    fontFamily: 'Barlow Semi Condensed',
+  fontFamily: 'Barlow Semi Condensed',
+  brightness: Brightness.dark,
+  primarySwatch: Colors.indigo,
+  colorScheme: ColorScheme.fromSwatch(
     brightness: Brightness.dark,
-    primarySwatch: Colors.indigo,
-    colorScheme: ColorScheme.fromSwatch(
-      brightness: Brightness.dark,
-      backgroundColor: Colors.white,
-    ).copyWith(
-      primary: Colors.white,
-      secondary: Colors.blueGrey,
-      tertiary: Colors.black,
-    ),
-    textTheme: TextTheme().apply(
-      bodyColor: Colors.white60,
-      displayColor: Colors.white60,
-    ),
-    buttonTheme: ButtonThemeData(
-      buttonColor: Colors.red,
-      textTheme: ButtonTextTheme.primary,
-    ),
-    listTileTheme: ListTileThemeData(
-      textColor: Colors.white60,
-      selectedTileColor: Colors.grey[800],
-    ),
-    canvasColor: Colors.blueGrey[800],
-    scaffoldBackgroundColor: Colors.blueGrey[900]);
+    backgroundColor: Colors.white,
+  ).copyWith(
+    primary: Colors.white,
+    secondary: Colors.blueGrey,
+    tertiary: Colors.black,
+  ),
+  textTheme: TextTheme().apply(
+    bodyColor: Colors.white60,
+    displayColor: Colors.white60,
+  ),
+  buttonTheme: ButtonThemeData(
+    buttonColor: Colors.red,
+    textTheme: ButtonTextTheme.primary,
+  ),
+  listTileTheme: ListTileThemeData(
+    textColor: Colors.white60,
+    selectedTileColor: Colors.grey[800],
+  ),
+  canvasColor: Colors.blueGrey[800],
+  scaffoldBackgroundColor: Color.fromARGB(255, 14, 24, 39),
+);
 
 class ThemeProvider extends ChangeNotifier {
   final String key = "theme";

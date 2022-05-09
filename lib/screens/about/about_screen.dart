@@ -1,9 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/animations/blur_animation.dart';
 import 'package:portfolio_website/animations/parallax_area.dart';
-import 'package:portfolio_website/animations/parallax_widget.dart';
-import 'package:portfolio_website/responsive.dart';
-import 'package:themed/themed.dart';
+import 'package:portfolio_website/screens/about/components/about_me.dart';
+import 'package:portfolio_website/screens/about/components/technologies.dart';
 
 class AboutScreen extends StatefulWidget {
   AboutScreen({Key? key}) : super(key: key);
@@ -14,9 +14,11 @@ class AboutScreen extends StatefulWidget {
 
 class _AboutScreenState extends State<AboutScreen> {
   late PageController _pageController;
-  final Duration _animationDuration = const Duration(milliseconds: 500);
+  final Duration _animationDuration = const Duration(milliseconds: 1000);
   final Cubic _curve = Curves.ease;
   late double _pageOffset;
+
+  List<Image> _images = [];
 
   @override
   void initState() {
@@ -28,6 +30,15 @@ class _AboutScreenState extends State<AboutScreen> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    for (var element in _images) {
+      precacheImage(element.image, context);
+    }
+  }
+
+  @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
@@ -35,38 +46,16 @@ class _AboutScreenState extends State<AboutScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var statusHeight = MediaQuery.of(context).padding.top;
-    var size = MediaQuery.of(context).size;
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-
     return Stack(
       children: [
         ParallaxArea(
-          child: PageView.builder(
+          child: PageView(
             controller: _pageController,
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => ParallaxWidget(
-              child: Center(
-                child: Text(
-                  'PAGE ${index + 1}',
-                  style: TextStyle(
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ),
-              background: BlurAnimation(
-                delay: Duration(milliseconds: 500),
-                duration: Duration(milliseconds: 1000),
-                child: ChangeColors(
-                  saturation: isDarkMode ? -0.7 : 0.0,
-                  child: Image.asset(
-                    'assets/images/background${index + 1}.jpg',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
+            children: [
+              AboutMe(),
+              Technologies(),
+            ],
           ),
         ),
         Visibility(
@@ -82,7 +71,7 @@ class _AboutScreenState extends State<AboutScreen> {
           ),
         ),
         Visibility(
-          visible: _pageOffset <= 0.9,
+          visible: _pageOffset <= 0.1,
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             alignment: Alignment.centerRight,

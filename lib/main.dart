@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/providers/screen_provider.dart';
 import 'package:portfolio_website/providers/theme_provider.dart';
-import 'package:portfolio_website/screens/main/main_screen.dart';
+import 'package:portfolio_website/screens/splash_screen.dart';
 import 'package:portfolio_website/services/scroll_behavior.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             theme: provider.darkTheme ? dark : light,
             scrollBehavior: CustomScrollBehavior(),
-            home: MainScreen(),
+            home: SplashScreen(),
           );
         },
       ),

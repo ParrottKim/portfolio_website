@@ -19,7 +19,7 @@ class NavigationAppBar extends StatefulWidget implements PreferredSizeWidget {
 
 class _NavigationAppBarState extends State<NavigationAppBar> {
   @override
-  PreferredSizeWidget build(BuildContext context) {
+  AppBar build(BuildContext context) {
     if (Responsive.isDesktop(context) || Responsive.isTablet(context)) {
       return AppBar(
         elevation: 0.0,
@@ -49,6 +49,7 @@ class _NavigationAppBarState extends State<NavigationAppBar> {
         elevation: 0.0,
         backgroundColor:
             Theme.of(context).colorScheme.tertiary.withOpacity(widget.opacity),
+        foregroundColor: Theme.of(context).colorScheme.primary,
       );
     }
   }

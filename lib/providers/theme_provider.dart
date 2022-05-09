@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ThemeData light = ThemeData(
   fontFamily: 'Barlow Semi Condensed',
   brightness: Brightness.light,
-  primarySwatch: Colors.indigo,
+  primarySwatch: Colors.teal,
   colorScheme: ColorScheme.fromSwatch(
     brightness: Brightness.light,
     backgroundColor: Colors.white,
@@ -32,7 +32,7 @@ ThemeData light = ThemeData(
 ThemeData dark = ThemeData(
   fontFamily: 'Barlow Semi Condensed',
   brightness: Brightness.dark,
-  primarySwatch: Colors.indigo,
+  primarySwatch: Colors.teal,
   colorScheme: ColorScheme.fromSwatch(
     brightness: Brightness.dark,
     backgroundColor: Colors.white,

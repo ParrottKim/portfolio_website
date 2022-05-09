@@ -20,7 +20,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
+          children: [
             Container(
               padding: EdgeInsets.symmetric(vertical: 30.0),
               child: MainLogo(
@@ -64,7 +64,7 @@ class _DrawerItemListState extends State<DrawerItemList> {
       itemCount: _sectionsName.length,
       itemBuilder: (context, index) => FadeAnimation(
         duration: Duration(milliseconds: 250),
-        delay: Duration(milliseconds: index * 250),
+        delay: Duration(milliseconds: 250 * index),
         offset: Offset(0, -10),
         child: ListTile(
           onTap: () {

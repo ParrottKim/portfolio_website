@@ -1,0 +1,82 @@
+import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:portfolio_website/screens/main/main_screen.dart';
+
+class SplashScreen extends StatefulWidget {
+  SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  List _images = [
+    AssetImage('assets/icons/parrot.png'),
+    AssetImage('assets/images/background1.jpg'),
+    AssetImage('assets/images/background2.jpg'),
+  ];
+
+  Future<void> _loadImage(ImageProvider provider) {
+    final config = ImageConfiguration(
+      bundle: rootBundle,
+      devicePixelRatio: 1,
+      platform: defaultTargetPlatform,
+    );
+    final Completer<void> completer = Completer();
+    final ImageStream stream = provider.resolve(config);
+
+    late final ImageStreamListener listener;
+
+    listener = ImageStreamListener((ImageInfo image, bool sync) {
+      debugPrint("Image ${image.debugLabel} finished loading");
+      completer.complete();
+      stream.removeListener(listener);
+    }, onError: (dynamic exception, StackTrace? stackTrace) {
+      completer.complete();
+      stream.removeListener(listener);
+      FlutterError.reportError(FlutterErrorDetails(
+        context: ErrorDescription('image failed to load'),
+        library: 'image resource service',
+        exception: exception,
+        stack: stackTrace,
+        silent: true,
+      ));
+    });
+
+    stream.addListener(listener);
+    return completer.future;
+  }
+
+  _preloading() async {
+    for (var element in _images) {
+      await _loadImage(element);
+    }
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => MainScreen(),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _preloading();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Theme.of(context).primaryColor,
+      child: Center(
+        child: CircularProgressIndicator(color: Colors.white),
+      ),
+    );
+  }
+}

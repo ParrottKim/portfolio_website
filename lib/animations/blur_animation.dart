@@ -27,8 +27,8 @@ class _BlurAnimationState extends State<BlurAnimation>
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this, duration: widget.duration);
-    _blurAnimation = Tween(begin: 0.01, end: 3.0).animate(_controller);
-    _opacityAnimation = Tween(begin: 1.0, end: 0.0).animate(_controller);
+    _blurAnimation = Tween(begin: 10.0, end: 0.01).animate(_controller);
+    _opacityAnimation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     Future.delayed(widget.delay, () {
       if (mounted) {
         _controller.forward();

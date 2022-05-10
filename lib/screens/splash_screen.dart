@@ -17,6 +17,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   List _images = [
     AssetImage('assets/icons/parrot.png'),
+    AssetImage('assets/images/profile_image.png'),
     AssetImage('assets/images/background1.jpg'),
     AssetImage('assets/images/background2.jpg'),
   ];

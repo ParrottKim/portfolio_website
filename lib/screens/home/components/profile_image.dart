@@ -8,6 +8,8 @@ class ProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlurAnimation(
+      delay: Duration(microseconds: 500),
+      duration: Duration(milliseconds: 500),
       child: SizedBox(
         width: size,
         height: size,

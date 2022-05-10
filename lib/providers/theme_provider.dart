@@ -65,7 +65,7 @@ class ThemeProvider extends ChangeNotifier {
   bool get darkTheme => _darkTheme;
 
   ThemeProvider() {
-    _darkTheme = true;
+    _darkTheme = false;
     loadFromPrefs();
   }
 
@@ -81,7 +81,7 @@ class ThemeProvider extends ChangeNotifier {
 
   loadFromPrefs() async {
     await _initPrefs();
-    _darkTheme = prefs.getBool(key) ?? true;
+    _darkTheme = prefs.getBool(key) ?? false;
     notifyListeners();
   }
 

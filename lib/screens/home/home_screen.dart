@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_website/responsive.dart';
 import 'package:portfolio_website/screens/home/components/introduction.dart';
 import 'package:portfolio_website/screens/home/components/profile_image.dart';
-import 'package:portfolio_website/screens/home/components/skills.dart';
+import 'package:portfolio_website/screens/home/components/websites.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
       width: double.infinity,
       child: Responsive(
         mobile: HomeScreenMobile(),
+        tablet: HomeScreenDesktop(),
         desktop: HomeScreenDesktop(),
       ),
     );
@@ -28,7 +29,7 @@ class HomeScreenMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: const [
         ProfileImage(size: 200.0),
         SizedBox(height: 20.0),
         Introduction(),
@@ -44,7 +45,7 @@ class HomeScreenDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: const [
         Introduction(),
         SizedBox(width: 100.0),
         ProfileImage(size: 400.0),

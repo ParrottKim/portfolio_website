@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
@@ -17,9 +18,43 @@ class AboutMe extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         width: double.infinity,
-        child: Responsive(
-          mobile: IntroduceMobile(),
-          desktop: IntroduceMobile(),
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  SizedBox(height: 60.0),
+                  FadeAnimation(
+                    delay: Duration(milliseconds: 500),
+                    offset: Offset(0.0, 0.0),
+                    child: Text(
+                      'ABOUT ME',
+                      style: GoogleFonts.bebasNeue(
+                        fontSize: 40.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  FadeAnimation(
+                    delay: Duration(milliseconds: 500),
+                    offset: Offset(0.0, 0.0),
+                    child: SizedBox(
+                      width: 50.0,
+                      child: Divider(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Responsive(
+                mobile: IntroduceMobile(),
+                desktop: IntroduceMobile(),
+              ),
+            ),
+          ],
         ),
       ),
       background: Container(
@@ -64,16 +99,23 @@ class IntroduceMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FadeAnimation(
-          delay: Duration(milliseconds: 250),
+          delay: Duration(milliseconds: 750),
           offset: Offset(0.0, 0.0),
-          child: Text(
-            'ABOUT ME',
-            style: GoogleFonts.bebasNeue(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w900,
+          child: Card(
+            elevation: 2.0,
+            color: Theme.of(context).primaryColor.withOpacity(0.7),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'about1'.tr(),
+                style: TextStyle(
+                  fontFamily: 'SCDREAM',
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ),
           ),
         ),

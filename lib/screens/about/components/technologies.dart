@@ -64,7 +64,7 @@ class TechnologiesMobile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         FadeAnimation(
-          delay: Duration(milliseconds: 250),
+          delay: Duration(milliseconds: 500),
           offset: Offset(0.0, 0.0),
           child: Text(
             'TECHNOLOGIES USED',

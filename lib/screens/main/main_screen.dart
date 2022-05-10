@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ import 'package:portfolio_website/screens/home/home_screen.dart';
 import 'package:portfolio_website/screens/main/components/navigation_appbar.dart';
 import 'package:portfolio_website/screens/main/components/navigation_drawer.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key? key}) : super(key: key);
@@ -44,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     _opacity =
-        _position < size.height * 0.40 ? _position / (size.height * 0.40) : 1;
+        _position < size.height * 0.40 ? 1 : size.height * 0.01 / _position;
 
     return Listener(
       onPointerSignal: (signal) {
@@ -70,6 +73,7 @@ class _MainScreenState extends State<MainScreen> {
         }
       },
       child: Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: NavigationAppBar(
           opacity: _opacity,
         ),
@@ -83,6 +87,23 @@ class _MainScreenState extends State<MainScreen> {
             AboutScreen(),
           ],
         ),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+              String text = '';
+              if (context.locale == Locale('en', 'US')) {
+                await context
+                    .setLocale(Locale('ko', 'KR'))
+                    .then((_) => text = '언어가 변경되었습니다.');
+              } else {
+                await context
+                    .setLocale(Locale('en', 'US'))
+                    .then((_) => text = 'Language has changed.');
+              }
+              setState(() {});
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(text)));
+            },
+            child: Icon(Icons.g_translate)),
       ),
     );
   }

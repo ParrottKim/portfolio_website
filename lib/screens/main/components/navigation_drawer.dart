@@ -28,7 +28,6 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
               ),
             ),
             Divider(
-              thickness: 0.1,
               color: Theme.of(context).colorScheme.primary,
             ),
             DrawerItemList(),

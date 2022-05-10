@@ -6,8 +6,8 @@ import 'dart:html' as html;
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/responsive.dart';
 
-class Skills extends StatelessWidget {
-  const Skills({Key? key}) : super(key: key);
+class Websites extends StatelessWidget {
+  const Websites({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class Skills extends StatelessWidget {
       children: [
         FadeAnimation(
           delay: Duration(
-              milliseconds: Responsive.isDesktop(context) ? 1250 : 1000),
+              milliseconds: Responsive.isDesktop(context) ? 3250 : 2500),
           duration: Duration(milliseconds: 250),
           offset: Offset(0.0, 10.0),
           child: IconButton(
@@ -29,7 +29,7 @@ class Skills extends StatelessWidget {
         ),
         FadeAnimation(
           delay: Duration(
-              milliseconds: Responsive.isDesktop(context) ? 1500 : 1250),
+              milliseconds: Responsive.isDesktop(context) ? 3500 : 2750),
           duration: Duration(milliseconds: 250),
           offset: Offset(0.0, 10.0),
           child: IconButton(
@@ -43,7 +43,7 @@ class Skills extends StatelessWidget {
         ),
         FadeAnimation(
           delay: Duration(
-              milliseconds: Responsive.isDesktop(context) ? 1750 : 1500),
+              milliseconds: Responsive.isDesktop(context) ? 3750 : 3000),
           duration: Duration(milliseconds: 250),
           offset: Offset(0.0, 10.0),
           child: IconButton(

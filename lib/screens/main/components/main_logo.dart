@@ -32,7 +32,7 @@ class MainLogo extends StatelessWidget {
                 'PARROTT KIM',
                 style: GoogleFonts.bebasNeue(
                   fontSize: size,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],

@@ -10,6 +10,7 @@ class Introduction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: Responsive.isDesktop(context)
@@ -82,12 +83,11 @@ class Introduction extends StatelessWidget {
           delay: Duration(
               milliseconds: Responsive.isDesktop(context) ? 3000 : 2000),
           duration: Duration(milliseconds: 500),
-          offset: Offset(-10.0, 0.0),
-          child: SizedBox(
-            width: 50.0,
-            child: Divider(
-              color: Theme.of(context).colorScheme.primary,
-            ),
+          offset: Offset(0.0, 0.0),
+          child: Divider(
+            color: Theme.of(context).colorScheme.primary,
+            indent: size.width / 2 - 24.0,
+            endIndent: size.width / 2 - 24.0,
           ),
         ),
         Websites(),

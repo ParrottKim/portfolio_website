@@ -64,7 +64,7 @@ class _AboutScreenState extends State<AboutScreen> {
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             alignment: Alignment.centerLeft,
             child: IconButton(
-              icon: Icon(Icons.keyboard_arrow_left, color: Colors.white),
+              icon: Icon(Icons.keyboard_arrow_left),
               onPressed: () => _pageController.previousPage(
                   duration: _animationDuration, curve: _curve),
             ),
@@ -76,7 +76,7 @@ class _AboutScreenState extends State<AboutScreen> {
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             alignment: Alignment.centerRight,
             child: IconButton(
-              icon: Icon(Icons.keyboard_arrow_right, color: Colors.white),
+              icon: Icon(Icons.keyboard_arrow_right),
               onPressed: () => _pageController.nextPage(
                   duration: _animationDuration, curve: _curve),
             ),

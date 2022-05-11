@@ -52,23 +52,24 @@ class _MainScreenState extends State<MainScreen> {
     return Listener(
       onPointerSignal: (signal) {
         if (signal is PointerScrollEvent) {
-          if (signal.scrollDelta.dy > 0) {
+          print(signal.scrollDelta);
+          if (signal.scrollDelta.dy > 100) {
             _screenProvider.nextScreen();
-          } else {
+          } else if (signal.scrollDelta.dy == 0) {
+            return;
+          } else if (signal.scrollDelta.dy < -100) {
             _screenProvider.previousScreen();
           }
         }
       },
       onPointerMove: (signal) {
         if (kIsWeb) {
-          if (signal is PointerMoveEvent) {
-            if (signal.delta.dy > 2) {
-              _screenProvider.previousScreen();
-            } else if (signal.delta.dy == 0) {
-              return;
-            } else if (signal.delta.dy < -2) {
-              _screenProvider.nextScreen();
-            }
+          if (signal.delta.dy > 10) {
+            _screenProvider.previousScreen();
+          } else if (signal.delta.dy == 0) {
+            return;
+          } else if (signal.delta.dy < -10) {
+            _screenProvider.nextScreen();
           }
         }
       },

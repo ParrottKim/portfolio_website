@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/animations/parallax_area.dart';
+import 'package:portfolio_website/animations/parallax_widget.dart';
 import 'package:portfolio_website/responsive.dart';
 import 'package:portfolio_website/screens/home/components/introduction.dart';
 import 'package:portfolio_website/screens/home/components/profile_image.dart';
@@ -9,15 +11,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return Container(
-      alignment: Alignment.center,
-      width: double.infinity,
-      child: Responsive(
-        mobile: HomeScreenMobile(),
-        tablet: HomeScreenDesktop(),
-        desktop: HomeScreenDesktop(),
-      ),
+    return Responsive(
+      mobile: HomeScreenMobile(),
+      tablet: HomeScreenDesktop(),
+      desktop: HomeScreenDesktop(),
     );
   }
 }

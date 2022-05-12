@@ -2,58 +2,35 @@ import 'dart:ui';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_website/animations/blur_animation.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/parallax_widget.dart';
 import 'package:portfolio_website/responsive.dart';
+import 'package:portfolio_website/screens/about/components/subtitle.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return ParallaxWidget(
-      fixedVertical: true,
-      child: Column(
-        children: [
-          SizedBox(height: 60.0),
-          FadeAnimation(
-            delay: Duration(milliseconds: 500),
-            offset: Offset(0.0, 0.0),
-            child: Text(
-              'ABOUT ME',
-              style: GoogleFonts.bebasNeue(
-                fontSize: 40.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          FadeAnimation(
-            delay: Duration(milliseconds: 500),
-            offset: Offset(0.0, 0.0),
-            child: Divider(
-              color: Theme.of(context).colorScheme.primary,
-              indent: size.width / 2 - 24.0,
-              endIndent: size.width / 2 - 24.0,
-            ),
-          ),
-          Responsive(
-            mobile: IntroduceMobile(),
-            desktop: IntroduceMobile(),
-          ),
-        ],
+      child: Responsive(
+        mobile: IntroduceMobile(),
+        desktop: IntroduceDesktop(),
       ),
-      background: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            colorFilter: ColorFilter.mode(
-              Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
-              BlendMode.dstATop,
-            ),
-            image: AssetImage(
-              'assets/images/background1.jpg',
+      background: BlurAnimation(
+        delay: Duration(milliseconds: 1000),
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              // colorFilter: ColorFilter.mode(
+              //   Theme.of(context).colorScheme.tertiary.withOpacity(0.7),
+              //   BlendMode.dstATop,
+              // ),
+              image: AssetImage(
+                'assets/images/background1.jpg',
+              ),
             ),
           ),
         ),
@@ -67,7 +44,87 @@ class IntroduceDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          padding: EdgeInsets.only(
+              top: 100.0, bottom: 80.0, left: 80.0, right: 80.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: FadeAnimation(
+                  delay: Duration(milliseconds: 1250),
+                  offset: Offset(0.0, 0.0),
+                  child: Subtitle(text: 'ABOUT ME', size: 80.0),
+                ),
+              ),
+              Expanded(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                      minWidth: constraints.maxWidth - 160.0,
+                      minHeight: constraints.maxHeight - 180.0),
+                  child: Container(
+                    padding: EdgeInsets.all(20.0),
+                    color:
+                        Theme.of(context).colorScheme.tertiary.withOpacity(0.7),
+                    child: Column(
+                      children: [
+                        FadeAnimation(
+                          delay: Duration(milliseconds: 1500),
+                          offset: Offset(0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                '“',
+                                style: TextStyle(
+                                  fontFamily: 'SCDREAM',
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w900,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primary
+                                      .withOpacity(0.3),
+                                ),
+                              ),
+                              SizedBox(width: 20.0),
+                              Expanded(
+                                child: Text(
+                                  'about1'.tr(),
+                                  style: TextStyle(
+                                    fontFamily: 'SCDREAM',
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 20.0),
+                              Text(
+                                '”',
+                                style: TextStyle(
+                                  fontFamily: 'SCDREAM',
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w900,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primary
+                                      .withOpacity(0.3),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
 
@@ -85,126 +142,76 @@ class IntroduceMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 40.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            FadeAnimation(
-              delay: Duration(milliseconds: 750),
-              offset: Offset(0.0, 0.0),
-              child: Card(
-                elevation: 2.0,
-                color: Theme.of(context).primaryColor.withOpacity(0.7),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'about1'.tr(),
-                    style: TextStyle(
-                      fontFamily: 'SCDREAM',
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w500,
-                      color: Theme.of(context).colorScheme.tertiary,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          padding:
+              EdgeInsets.only(top: 60.0, bottom: 40.0, left: 40.0, right: 40.0),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+                minWidth: constraints.maxWidth - 80.0,
+                minHeight: constraints.maxHeight - 100.0),
+            child: Container(
+              padding: EdgeInsets.all(20.0),
+              color: Theme.of(context).colorScheme.tertiary.withOpacity(0.7),
+              child: Column(
+                children: [
+                  FadeAnimation(
+                    delay: Duration(milliseconds: 1250),
+                    offset: Offset(0.0, 0.0),
+                    child: Subtitle(text: 'ABOUT ME'),
+                  ),
+                  FadeAnimation(
+                    delay: Duration(milliseconds: 1500),
+                    offset: Offset(0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          '“',
+                          style: TextStyle(
+                            fontFamily: 'SCDREAM',
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.3),
+                          ),
+                        ),
+                        SizedBox(width: 20.0),
+                        Expanded(
+                          child: Text(
+                            'about1'.tr(),
+                            style: TextStyle(
+                              fontFamily: 'SCDREAM',
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20.0),
+                        Text(
+                          '”',
+                          style: TextStyle(
+                            fontFamily: 'SCDREAM',
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.3),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                ),
+                ],
               ),
             ),
-            SizedBox(height: 20.0),
-            FadeAnimation(
-              delay: Duration(milliseconds: 1000),
-              offset: Offset(0.0, 0.0),
-              child: Text(
-                'about2-1'.tr(),
-                style: TextStyle(
-                  fontFamily: 'SCDREAM',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            FadeAnimation(
-              delay: Duration(milliseconds: 1000),
-              offset: Offset(0.0, 0.0),
-              child: Text(
-                'about2-2'.tr(),
-                style: TextStyle(
-                  fontFamily: 'SCDREAM',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            FadeAnimation(
-              delay: Duration(milliseconds: 1000),
-              offset: Offset(0.0, 0.0),
-              child: Text(
-                'about2-3'.tr(),
-                style: TextStyle(
-                  fontFamily: 'SCDREAM',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            FadeAnimation(
-              delay: Duration(milliseconds: 1000),
-              offset: Offset(0.0, 0.0),
-              child: Text(
-                'about2-4'.tr(),
-                style: TextStyle(
-                  fontFamily: 'SCDREAM',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            FadeAnimation(
-              delay: Duration(milliseconds: 1000),
-              offset: Offset(0.0, 0.0),
-              child: Text(
-                'about2-5'.tr(),
-                style: TextStyle(
-                  fontFamily: 'SCDREAM',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            FadeAnimation(
-              delay: Duration(milliseconds: 1000),
-              offset: Offset(0.0, 0.0),
-              child: Text(
-                'about2-6'.tr(),
-                style: TextStyle(
-                  fontFamily: 'SCDREAM',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            FadeAnimation(
-              delay: Duration(milliseconds: 1000),
-              offset: Offset(0.0, 0.0),
-              child: Text(
-                'about2-7'.tr(),
-                style: TextStyle(
-                  fontFamily: 'SCDREAM',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

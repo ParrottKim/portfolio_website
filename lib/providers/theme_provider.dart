@@ -10,7 +10,7 @@ ThemeData light = ThemeData(
     backgroundColor: Colors.white,
   ).copyWith(
     primary: Colors.black,
-    secondary: Colors.blueGrey,
+    secondary: Colors.teal,
     tertiary: Colors.white,
   ),
   textTheme: TextTheme().apply(
@@ -38,7 +38,7 @@ ThemeData dark = ThemeData(
     backgroundColor: Colors.white,
   ).copyWith(
     primary: Colors.white,
-    secondary: Colors.blueGrey,
+    secondary: Colors.teal,
     tertiary: Colors.black,
   ),
   textTheme: TextTheme().apply(

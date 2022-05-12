@@ -26,7 +26,7 @@ class Introduction extends StatelessWidget {
             style: GoogleFonts.bebasNeue(
               fontSize: 24.0,
               fontWeight: FontWeight.bold,
-              color: Colors.teal,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ),
@@ -84,10 +84,10 @@ class Introduction extends StatelessWidget {
               milliseconds: Responsive.isDesktop(context) ? 3000 : 2000),
           duration: Duration(milliseconds: 500),
           offset: Offset(0.0, 0.0),
-          child: Divider(
-            color: Theme.of(context).colorScheme.primary,
-            indent: size.width / 2 - 24.0,
-            endIndent: size.width / 2 - 24.0,
+          child: Container(
+            height: 1.0,
+            width: 50.0,
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
           ),
         ),
         Websites(),

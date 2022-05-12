@@ -75,8 +75,9 @@ class _AppBarItemListState extends State<AppBarItemList> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       shrinkWrap: true,
+      padding: EdgeInsets.symmetric(horizontal: 30.0),
       scrollDirection: Axis.horizontal,
       itemCount: _sectionsName.length,
       itemBuilder: (context, index) => FadeAnimation(
@@ -88,40 +89,36 @@ class _AppBarItemListState extends State<AppBarItemList> {
               .updateScreen(index.toDouble()),
           onHover: (value) => setState(() => _isHovering[index] = value),
           hoverColor: Colors.transparent,
-          child: Container(
+          child: Stack(
             alignment: Alignment.center,
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            height: 60.0,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  _sectionsName[index],
-                  style: GoogleFonts.roboto(
-                    color: _isHovering[index]
-                        ? Theme.of(context).colorScheme.primary.withOpacity(0.7)
-                        : Theme.of(context).colorScheme.primary,
-                    fontSize: 12.0,
-                  ),
+            children: [
+              Text(
+                _sectionsName[index],
+                style: GoogleFonts.roboto(
+                  color: _isHovering[index]
+                      ? Theme.of(context).colorScheme.primary.withOpacity(0.7)
+                      : Theme.of(context).colorScheme.primary,
+                  fontSize: 12.0,
                 ),
-                const SizedBox(height: 5.0),
-                Visibility(
-                  maintainAnimation: true,
-                  maintainState: true,
-                  maintainSize: true,
-                  visible: _isHovering[index],
-                  child: Container(
-                    height: 1.0,
-                    width: 20.0,
-                    color:
-                        Theme.of(context).colorScheme.primary.withOpacity(0.7),
-                  ),
+              ),
+              const SizedBox(height: 5.0),
+              Visibility(
+                maintainAnimation: true,
+                maintainState: true,
+                maintainSize: true,
+                visible: _isHovering[index],
+                child: Container(
+                  margin: EdgeInsets.only(top: 16.0),
+                  height: 1.0,
+                  width: 20.0,
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
+      separatorBuilder: (context, index) => SizedBox(width: 30.0),
     );
   }
 }

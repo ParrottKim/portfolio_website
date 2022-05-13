@@ -10,7 +10,6 @@ class ProfileImage extends StatelessWidget {
     return BlurAnimation(
       delay: Duration(microseconds: 500),
       duration: Duration(milliseconds: 500),
-      blurOffset: 0.01,
       child: SizedBox(
         width: size,
         height: size,

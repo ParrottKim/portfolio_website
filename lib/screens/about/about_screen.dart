@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/animations/parallax_area.dart';
+import 'package:portfolio_website/screens/about/components/introduce.dart';
 import 'package:portfolio_website/screens/about/components/about_me.dart';
-import 'package:portfolio_website/screens/about/components/technologies.dart';
 
 class AboutScreen extends StatefulWidget {
   AboutScreen({Key? key}) : super(key: key);
@@ -53,15 +53,15 @@ class _AboutScreenState extends State<AboutScreen> {
             controller: _pageController,
             scrollDirection: Axis.horizontal,
             children: [
+              Introduce(),
               AboutMe(),
-              Technologies(),
             ],
           ),
         ),
         Visibility(
           visible: _pageOffset >= 0.9,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            padding: EdgeInsets.symmetric(horizontal: 4.0),
             alignment: Alignment.centerLeft,
             child: IconButton(
               icon: Icon(Icons.keyboard_arrow_left),
@@ -73,7 +73,7 @@ class _AboutScreenState extends State<AboutScreen> {
         Visibility(
           visible: _pageOffset <= 0.1,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            padding: EdgeInsets.symmetric(horizontal: 4.0),
             alignment: Alignment.centerRight,
             child: IconButton(
               icon: Icon(Icons.keyboard_arrow_right),

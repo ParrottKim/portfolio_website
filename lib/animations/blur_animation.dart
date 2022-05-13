@@ -6,15 +6,13 @@ class BlurAnimation extends StatefulWidget {
   final Widget child;
   final Duration delay;
   final Duration duration;
-  final double blurOffset;
-  final double opacityOffset;
+  final double offset;
   BlurAnimation({
     Key? key,
     required this.child,
     this.delay = const Duration(milliseconds: 0),
     this.duration = const Duration(milliseconds: 400),
-    this.blurOffset = 0.01,
-    this.opacityOffset = 0.5,
+    this.offset = 0.7,
   }) : super(key: key);
 
   @override
@@ -67,7 +65,7 @@ class _BlurAnimationState extends State<BlurAnimation>
                     color: Theme.of(context)
                         .colorScheme
                         .tertiary
-                        .withOpacity(widget.opacityOffset),
+                        .withOpacity(widget.offset),
                   ),
                 ),
               ),

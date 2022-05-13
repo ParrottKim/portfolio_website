@@ -5,7 +5,12 @@ import 'package:portfolio_website/animations/fade_animation.dart';
 class Subtitle extends StatelessWidget {
   final String text;
   final double size;
-  const Subtitle({Key? key, required this.text, this.size = 40.0})
+  final Color color;
+  const Subtitle(
+      {Key? key,
+      required this.text,
+      this.size = 40.0,
+      this.color = Colors.white})
       : super(key: key);
 
   @override
@@ -13,26 +18,20 @@ class Subtitle extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FadeAnimation(
-            delay: Duration(milliseconds: 500),
-            offset: Offset(0.0, 0.0),
-            child: Text(
-              text,
-              style: GoogleFonts.bebasNeue(
-                fontSize: size,
-                fontWeight: FontWeight.bold,
-              ),
+          Text(
+            text,
+            style: GoogleFonts.bebasNeue(
+              fontSize: size,
+              fontWeight: FontWeight.bold,
+              color: color,
             ),
           ),
-          FadeAnimation(
-            delay: Duration(milliseconds: 500),
-            offset: Offset(0.0, 0.0),
-            child: Container(
-              height: 4.0,
-              width: 50.0,
-              color: Theme.of(context).colorScheme.secondary,
-            ),
+          Container(
+            height: 4.0,
+            width: 50.0,
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ],
       ),

@@ -2,7 +2,8 @@
 <img src="https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=Dart&logoColor=white"/>  <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=Flutter&logoColor=white"/>
 
 ## My responsive single-page portfolio built with Flutter Web.
-View the [live site](https://parrottkim.github.io). (Under Development)
+#### View the [live site](https://parrottkim.github.io). (Under Development)
+---
 
 ## :fire: Features
 :bulb: Fully built with Flutter Web only  

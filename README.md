@@ -1,16 +1,21 @@
-# portfolio_website
+# Portfolio Website
+<img src="https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=Dart&logoColor=white"/>  <img src="https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=Flutter&logoColor=white"/>
 
-A new Flutter project.
+## My responsive single-page portfolio built with Flutter Web.
+View the [live site](https://parrottkim.github.io). (Under Development)
 
-## Getting Started
+## :fire: Features
+:bulb: Fully built with Flutter Web only  
+:bulb: Single-page Layout  
+:bulb: Various Animation  
+:bulb: Fully Responsive  
+:bulb: Dark Theme (You can change with click the Parrot)  
 
-This project is a starting point for a Flutter application.
+## :clipboard: Sections
+:heavy_check_mark: Home  
+:heavy_check_mark: About  
+:construction: Services  
+:construction: Projects  
+:construction: Contact  
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Leave a :star: if you like it!

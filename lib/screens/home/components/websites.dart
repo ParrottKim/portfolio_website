@@ -16,7 +16,7 @@ class Websites extends StatelessWidget {
       children: [
         FadeAnimation(
           delay: Duration(
-              milliseconds: Responsive.isDesktop(context) ? 3250 : 2500),
+              milliseconds: Responsive.isDesktop(context) ? 3000 : 2000),
           duration: Duration(milliseconds: 250),
           offset: Offset(0.0, 10.0),
           child: IconButton(
@@ -29,7 +29,7 @@ class Websites extends StatelessWidget {
         ),
         FadeAnimation(
           delay: Duration(
-              milliseconds: Responsive.isDesktop(context) ? 3500 : 2750),
+              milliseconds: Responsive.isDesktop(context) ? 3250 : 2250),
           duration: Duration(milliseconds: 250),
           offset: Offset(0.0, 10.0),
           child: IconButton(
@@ -43,7 +43,7 @@ class Websites extends StatelessWidget {
         ),
         FadeAnimation(
           delay: Duration(
-              milliseconds: Responsive.isDesktop(context) ? 3750 : 3000),
+              milliseconds: Responsive.isDesktop(context) ? 3500 : 2500),
           duration: Duration(milliseconds: 250),
           offset: Offset(0.0, 10.0),
           child: IconButton(

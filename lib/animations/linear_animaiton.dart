@@ -5,7 +5,8 @@ class LinearAnimation extends StatefulWidget {
   final Duration delay;
   final Duration duration;
   final Alignment alignment;
-  LinearAnimation({
+
+  const LinearAnimation({
     Key? key,
     required this.child,
     this.delay = const Duration(milliseconds: 0),
@@ -26,7 +27,7 @@ class _LinearAnimationState extends State<LinearAnimation>
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this, duration: widget.duration);
-    _linearAnimation = Tween(begin: 0.0, end: 1.0).animate(
+    _linearAnimation = Tween(begin: 0.0, end: 1.1).animate(
         CurvedAnimation(parent: _controller, curve: Curves.easeInQuad));
     Future.delayed(widget.delay, () {
       if (mounted) {

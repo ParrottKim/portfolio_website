@@ -16,26 +16,29 @@ class MainLogo extends StatelessWidget {
           provider.toggleTheme();
         },
         child: Center(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(
-                width: size,
-                height: size,
-                child: Image.asset(
-                  'assets/icons/parrot.png',
-                  color: isDarkMode ? Colors.white : Colors.black87,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(
+                  width: size,
+                  height: size,
+                  child: Image.asset(
+                    'assets/icons/parrot.png',
+                    color: isDarkMode ? Colors.white : Colors.black87,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 10.0),
-              Text(
-                'PARROTT KIM',
-                style: GoogleFonts.bebasNeue(
-                  fontSize: size,
-                  fontWeight: FontWeight.bold,
+                const SizedBox(width: 10.0),
+                Text(
+                  'PARROTT KIM',
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: size,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

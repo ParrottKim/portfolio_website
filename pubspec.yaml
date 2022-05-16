@@ -40,6 +40,7 @@ dependencies:
   material_design_icons_flutter: ^5.0.6595
   easy_localization: ^3.0.0
   enum_to_string: ^2.0.1
+  morphable_shape: ^1.6.4
 
 dev_dependencies:
   flutter_test:

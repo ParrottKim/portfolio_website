@@ -18,26 +18,26 @@ class Introduction extends StatelessWidget {
           : CrossAxisAlignment.center,
       children: [
         FadeAnimation(
-          delay: Duration(milliseconds: 1000),
+          delay: Duration(milliseconds: 500),
           duration: Duration(milliseconds: 500),
           offset: Offset(-10.0, 0.0),
           child: Text(
             'MOBILE APP DEVELOPER',
             style: GoogleFonts.bebasNeue(
-              fontSize: 24.0,
+              fontSize: Responsive.isDesktop(context) ? 30.0 : 24.0,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ),
         FadeAnimation(
-          delay: Duration(milliseconds: 1500),
+          delay: Duration(milliseconds: 1000),
           duration: Duration(milliseconds: 500),
           offset: Offset(-10.0, 0.0),
           child: Text(
             'PARROTT KIM',
             style: GoogleFonts.bebasNeue(
-              fontSize: 60.0,
+              fontSize: Responsive.isDesktop(context) ? 70.0 : 60.0,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.primary,
             ),
@@ -45,7 +45,7 @@ class Introduction extends StatelessWidget {
         ),
         if (Responsive.isDesktop(context))
           FadeAnimation(
-            delay: Duration(milliseconds: 2000),
+            delay: Duration(milliseconds: 1500),
             duration: Duration(milliseconds: 500),
             offset: Offset(-10.0, 0.0),
             child: Padding(
@@ -54,7 +54,7 @@ class Introduction extends StatelessWidget {
                 'home1'.tr(),
                 style: TextStyle(
                   fontFamily: 'SCDREAM',
-                  fontSize: 15.0,
+                  fontSize: 17.0,
                   fontWeight: FontWeight.w500,
                   color: Theme.of(context).colorScheme.primary,
                 ),
@@ -63,7 +63,7 @@ class Introduction extends StatelessWidget {
           ),
         if (Responsive.isDesktop(context))
           FadeAnimation(
-            delay: Duration(milliseconds: 2500),
+            delay: Duration(milliseconds: 2000),
             duration: Duration(milliseconds: 500),
             offset: Offset(-10.0, 0.0),
             child: Padding(
@@ -72,7 +72,7 @@ class Introduction extends StatelessWidget {
                 'home2'.tr(),
                 style: TextStyle(
                   fontFamily: 'SCDREAM',
-                  fontSize: 13.0,
+                  fontSize: 15.0,
                   fontWeight: FontWeight.w300,
                   color: Theme.of(context).colorScheme.primary,
                 ),
@@ -81,7 +81,7 @@ class Introduction extends StatelessWidget {
           ),
         FadeAnimation(
           delay: Duration(
-              milliseconds: Responsive.isDesktop(context) ? 3000 : 2000),
+              milliseconds: Responsive.isDesktop(context) ? 2500 : 1500),
           duration: Duration(milliseconds: 500),
           offset: Offset(0.0, 0.0),
           child: Container(

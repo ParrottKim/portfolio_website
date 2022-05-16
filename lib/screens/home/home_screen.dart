@@ -26,7 +26,7 @@ class HomeScreenMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         ProfileImage(size: 200.0),
         SizedBox(height: 20.0),
         Introduction(),
@@ -42,9 +42,9 @@ class HomeScreenDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Introduction(),
-        SizedBox(width: 100.0),
+        SizedBox(width: 120.0),
         ProfileImage(size: 400.0),
       ],
     );

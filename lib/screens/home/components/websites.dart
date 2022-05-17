@@ -47,9 +47,11 @@ class Websites extends StatelessWidget {
           duration: Duration(milliseconds: 250),
           offset: Offset(0.0, 10.0),
           child: IconButton(
-            icon: Icon(MdiIcons.web),
+            icon: Icon(MdiIcons.gmail),
             splashRadius: 24.0,
-            onPressed: () {},
+            onPressed: () {
+              html.window.open('mailto:parrottkim21@gmail.com', '_blank');
+            },
           ),
         ),
       ],

@@ -5,6 +5,8 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:portfolio_website/animations/hexagon_progress_animation.dart';
+import 'package:portfolio_website/animations/hexagon_progress_indicator.dart';
 import 'package:portfolio_website/screens/main/main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +17,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  List _images = [
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  final List _images = const [
     AssetImage('assets/icons/parrot.png'),
     AssetImage('assets/images/profile_image.png'),
     AssetImage('assets/images/background1.jpg'),
@@ -57,6 +62,11 @@ class _SplashScreenState extends State<SplashScreen> {
     for (var element in _images) {
       await _loadImage(element);
     }
+    await Future.delayed(
+      Duration(
+        milliseconds: 3000,
+      ),
+    );
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -76,7 +86,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Container(
       color: Theme.of(context).colorScheme.secondary,
       child: Center(
-        child: CircularProgressIndicator(color: Colors.white),
+        child: HexagonProgressIndicator(
+          size: 60.0,
+          asset: 'assets/icons/parrot.png',
+        ),
       ),
     );
   }

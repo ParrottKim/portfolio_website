@@ -16,8 +16,7 @@ class ProfileImage extends StatelessWidget {
       child: HexagonProgressAnimation(
         delay: Duration(milliseconds: 1000),
         duration: Duration(milliseconds: 750),
-        width: size,
-        height: size,
+        size: size,
         strokeWidth: Responsive.isMobile(context) ? 10.0 : 20.0,
         image: AssetImage('assets/images/profile_image.png'),
       ),

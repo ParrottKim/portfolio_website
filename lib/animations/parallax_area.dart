@@ -32,7 +32,7 @@ class _ParallaxAreaState extends State<ParallaxArea> {
     super.initState();
     scrollListener = () => _handleEvent();
     widget.scrollController?.addListener(scrollListener);
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _handleEvent();
     });
   }

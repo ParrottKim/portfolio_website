@@ -26,7 +26,18 @@ class Introduction extends StatelessWidget {
             style: GoogleFonts.bebasNeue(
               fontSize: Responsive.isDesktop(context) ? 30.0 : 24.0,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.secondary,
+              foreground: Paint()
+                ..shader = LinearGradient(
+                  colors: [
+                    Colors.teal[200]!,
+                    Colors.teal,
+                  ],
+                ).createShader(
+                  Rect.fromPoints(
+                    Offset(0, 10),
+                    Offset(80, 10),
+                  ),
+                ),
             ),
           ),
         ),

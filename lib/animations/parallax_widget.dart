@@ -97,7 +97,7 @@ class _ParallaxWidgetState extends State<ParallaxWidget> {
           "Overflows minimum value is 1, current overflow values(W: ${widget.overflowWidthFactor} - H: ${widget.overflowHeightFactor})");
     }
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       parallaxListener = _computeParallaxOffset;
       parallaxArea?.addListener(parallaxListener);
     });

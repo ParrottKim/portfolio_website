@@ -14,7 +14,7 @@ import '../../../animations/linear_animaiton.dart';
 
 class Speciality extends StatelessWidget {
   final IconData icon;
-  final String text;
+  final String title;
   final String content;
   final Duration delay;
   final Duration firstDelay;
@@ -23,7 +23,7 @@ class Speciality extends StatelessWidget {
   const Speciality({
     Key? key,
     required this.icon,
-    required this.text,
+    required this.title,
     required this.content,
     this.delay = const Duration(milliseconds: 500),
     this.firstDelay = const Duration(milliseconds: 500),
@@ -45,29 +45,15 @@ class Speciality extends StatelessWidget {
               offset: Offset(0.0, 0.0),
               child: HexagonProgressAnimation(
                 delay: delay + firstDelay,
-                width: 60.0,
-                height: 60.0,
+                size: 60.0,
                 strokeWidth: 5.0,
                 icon: icon,
               ),
             ),
             SizedBox(width: Responsive.isDesktop(context) ? 14.0 : 10.0),
             LinearAnimation(
-              delay: delay + secondDelay,
-              child: Text(
-                text,
-                style: context.locale == Locale('en', 'US')
-                    ? GoogleFonts.bebasNeue(
-                        fontSize: Responsive.isDesktop(context) ? 30.0 : 22.0,
-                        fontWeight: FontWeight.w900,
-                      )
-                    : TextStyle(
-                        fontFamily: 'SCDREAM',
-                        fontSize: Responsive.isDesktop(context) ? 28.0 : 20.0,
-                        fontWeight: FontWeight.w900,
-                      ),
-              ),
-            ),
+                delay: delay + secondDelay,
+                child: SpecialityTitle(text: title)),
           ],
         ),
         SizedBox(height: 8.0),
@@ -84,6 +70,44 @@ class Speciality extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class SpecialityTitle extends StatelessWidget {
+  final String text;
+  const SpecialityTitle({Key? key, required this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double spacing = 0.5;
+
+    if (!Responsive.isDesktop(context)) {
+      if (text.length > 10) {
+        spacing = 0.5;
+      } else if (text.length > 8) {
+        spacing = 2.6;
+      } else if (text.length > 4) {
+        spacing = 9.2;
+      }
+    }
+
+    return Text(
+      text,
+      style: context.locale == Locale('en', 'US')
+          ? GoogleFonts.bebasNeue(
+              fontSize: Responsive.isDesktop(context) ? 30.0 : 22.0,
+              fontWeight: FontWeight.w900,
+              letterSpacing: spacing,
+              wordSpacing: 0.0,
+            )
+          : TextStyle(
+              fontFamily: 'SCDREAM',
+              fontSize: Responsive.isDesktop(context) ? 28.0 : 20.0,
+              fontWeight: FontWeight.w900,
+              letterSpacing: spacing,
+              wordSpacing: 0.0,
+            ),
     );
   }
 }

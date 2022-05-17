@@ -31,7 +31,15 @@ class Subtitle extends StatelessWidget {
           Container(
             height: 4.0,
             width: 50.0,
-            color: Theme.of(context).colorScheme.secondary,
+            decoration: BoxDecoration(
+              color: Colors.teal,
+              gradient: LinearGradient(
+                colors: [
+                  Colors.teal[200]!,
+                  Colors.teal,
+                ],
+              ),
+            ),
           ),
         ],
       ),

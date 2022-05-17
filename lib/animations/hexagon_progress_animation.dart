@@ -5,11 +5,10 @@ import 'package:morphable_shape/morphable_shape.dart';
 import 'package:portfolio_website/responsive.dart';
 
 class HexagonProgressAnimation extends StatefulWidget {
-  final double? width;
-  final double? height;
-  final double strokeWidth;
   final Duration delay;
   final Duration duration;
+  final double? size;
+  final double strokeWidth;
   final Color barColor;
   final AssetImage? image;
   final IconData? icon;
@@ -19,8 +18,7 @@ class HexagonProgressAnimation extends StatefulWidget {
     this.delay = const Duration(milliseconds: 0),
     this.duration = const Duration(milliseconds: 500),
     this.barColor = Colors.teal,
-    this.width,
-    this.height,
+    this.size,
     this.strokeWidth = 20.0,
     this.image,
     this.icon,
@@ -41,7 +39,6 @@ class _HexagonProgressAnimationState extends State<HexagonProgressAnimation>
     super.initState();
     _controller = AnimationController(vsync: this, duration: widget.duration);
     _animation = Tween<double>(begin: 0.0, end: 100.0).animate(_controller);
-    print(widget.delay);
     Future.delayed(widget.delay, () {
       if (mounted) {
         _controller.forward();
@@ -62,8 +59,8 @@ class _HexagonProgressAnimationState extends State<HexagonProgressAnimation>
         return AnimatedBuilder(
           animation: _controller,
           builder: (context, child) => Container(
-            width: widget.width ?? constraint.biggest.width,
-            height: widget.height ?? constraint.biggest.height,
+            width: widget.size ?? constraint.biggest.width,
+            height: widget.size ?? constraint.biggest.height,
             decoration: ShapeDecoration(
               image: widget.image != null
                   ? DecorationImage(image: widget.image!, scale: 1.5)
@@ -75,6 +72,12 @@ class _HexagonProgressAnimationState extends State<HexagonProgressAnimation>
                   style: BorderStyle.solid,
                   width: widget.strokeWidth,
                   color: Colors.teal,
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.teal[200]!,
+                      Colors.teal,
+                    ],
+                  ),
                   begin: 0.toPercentLength,
                   end: _animation.value.toPercentLength,
                   strokeJoin: StrokeJoin.miter,

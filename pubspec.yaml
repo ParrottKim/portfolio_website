@@ -41,7 +41,7 @@ dependencies:
   easy_localization: ^3.0.0
   enum_to_string: ^2.0.1
   morphable_shape: ^1.6.4
-  flutter_speed_dial: ^6.0.0
+  flutter_speed_dial: ^4.2.0
 
 dev_dependencies:
   flutter_test:

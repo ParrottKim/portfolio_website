@@ -53,7 +53,7 @@ class _DrawerItemListState extends State<DrawerItemList> {
   final List<String> _sectionsName = [
     "HOME",
     "ABOUT",
-    "SERVICES",
+    "TECHS",
     "PROJECTS",
     "CONTACT"
   ];

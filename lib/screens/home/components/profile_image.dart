@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/animations/blur_animation.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/hexagon_progress_animation.dart';
 import 'package:portfolio_website/responsive.dart';

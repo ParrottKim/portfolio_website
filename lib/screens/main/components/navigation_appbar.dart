@@ -66,7 +66,7 @@ class _AppBarItemListState extends State<AppBarItemList> {
   final List<String> _sectionsName = [
     "HOME",
     "ABOUT",
-    "SERVICES",
+    "TECHS",
     "PROJECTS",
     "CONTACT"
   ];

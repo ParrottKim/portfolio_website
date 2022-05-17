@@ -11,58 +11,15 @@ import 'package:portfolio_website/screens/about/components/catchphrase.dart';
 import 'package:portfolio_website/screens/about/components/speciality.dart';
 import 'package:portfolio_website/screens/about/components/subtitle.dart';
 
-class AboutScreen extends StatefulWidget {
+class AboutScreen extends StatelessWidget {
   AboutScreen({Key? key}) : super(key: key);
 
   @override
-  State<AboutScreen> createState() => _AboutScreenState();
-}
-
-class _AboutScreenState extends State<AboutScreen> {
-  late PageController _pageController;
-  final Duration _animationDuration = const Duration(milliseconds: 1000);
-  final Cubic _curve = Curves.ease;
-  late double _pageOffset;
-
-  // final List _items = [
-  //   IconTile(
-  //     icon: MdiIcons.eye,
-  //     text: 'about2-1'.tr(),
-  //     content: 'about2-1-1'.tr(),
-  //   ),
-  //   IconTile(
-  //     icon: MdiIcons.calendarMonthOutline,
-  //     text: 'about2-2'.tr(),
-  //     content: 'about2-2-1'.tr(),
-  //   ),
-  //   IconTile(
-  //     icon: MdiIcons.calendarMonthOutline,
-  //     text: 'about2-3'.tr(),
-  //     content: 'about2-3-1'.tr(),
-  //   ),
-  // ];
-
-  @override
-  void initState() {
-    super.initState();
-    _pageOffset = 0;
-    _pageController = PageController(initialPage: 0);
-    _pageController.addListener(
-        () => setState(() => _pageOffset = _pageController.page ?? 0));
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Padding(
-      padding: Responsive.isDesktop(context)
-          ? EdgeInsets.only(top: 100.0, bottom: 60.0, left: 100.0, right: 100.0)
-          : EdgeInsets.only(top: 60.0, bottom: 40.0, left: 40.0, right: 40.0),
+      padding:
+          EdgeInsets.only(left: size.width * 0.15, right: size.width * 0.15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

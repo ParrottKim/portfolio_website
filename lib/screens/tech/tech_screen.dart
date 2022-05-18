@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:morphable_shape/morphable_shape.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/linear_animaiton.dart';
+import 'package:portfolio_website/animations/polygon_progress_indicator.dart';
 import 'package:portfolio_website/responsive.dart';
 import 'package:portfolio_website/screens/about/components/subtitle.dart';
 
@@ -43,6 +45,19 @@ class TechScreen extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20.0),
+          Stack(
+            children: [
+              PolygonProgressIndicator(
+                delay: Duration(milliseconds: 1000),
+                sides: 4,
+                size: 100.0,
+                color: Colors.teal,
+                isRepeat: false,
+                child: SizedBox.shrink(),
               ),
             ],
           ),

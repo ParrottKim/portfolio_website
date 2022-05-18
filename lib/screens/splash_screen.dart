@@ -1,12 +1,10 @@
 import 'dart:async';
-import 'dart:typed_data';
-import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:portfolio_website/animations/hexagon_progress_animation.dart';
-import 'package:portfolio_website/animations/hexagon_progress_indicator.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio_website/animations/polygon_progress_indicator.dart';
 import 'package:portfolio_website/screens/main/main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -86,9 +84,12 @@ class _SplashScreenState extends State<SplashScreen> {
     return Container(
       color: Theme.of(context).colorScheme.secondary,
       child: Center(
-        child: HexagonProgressIndicator(
+        child: PolygonProgressIndicator(
           size: 60.0,
-          asset: 'assets/icons/parrot.png',
+          child: SvgPicture.asset(
+            'assets/icons/parrot.svg',
+            color: Colors.white,
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -9,37 +10,29 @@ class MainLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return Consumer<ThemeProvider>(
-      builder: (context, provider, child) => InkWell(
-        onTap: () {
-          provider.toggleTheme();
-        },
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                SizedBox(
-                  width: size,
-                  height: size,
-                  child: Image.asset(
-                    'assets/icons/parrot.png',
-                    color: isDarkMode ? Colors.white : Colors.black87,
-                  ),
-                ),
-                const SizedBox(width: 10.0),
-                Text(
-                  'PARROTT KIM',
-                  style: GoogleFonts.bebasNeue(
-                    fontSize: size,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 30.0),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SizedBox(
+              width: size,
+              height: size,
+              child: SvgPicture.asset(
+                'assets/icons/parrot.svg',
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
-          ),
+            const SizedBox(width: 10.0),
+            Text(
+              'PARROTT KIM',
+              style: GoogleFonts.bebasNeue(
+                fontSize: size,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ),
     );

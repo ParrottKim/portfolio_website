@@ -50,25 +50,29 @@ class AboutScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Speciality(
-                  delay: Duration(milliseconds: 1000),
-                  icon: MdiIcons.eye,
-                  title: 'about2-1'.tr(),
-                  content: 'about2-1-1'.tr(),
+                Expanded(
+                  child: Speciality(
+                    delay: Duration(milliseconds: 1000),
+                    icon: MdiIcons.eye,
+                    title: 'about2-1'.tr(),
+                    content: 'about2-1-1'.tr(),
+                  ),
                 ),
-                SizedBox(width: 40.0),
-                Speciality(
-                  delay: Duration(milliseconds: 2000),
-                  icon: MdiIcons.rocket,
-                  title: 'about2-2'.tr(),
-                  content: 'about2-2-1'.tr(),
+                Expanded(
+                  child: Speciality(
+                    delay: Duration(milliseconds: 2000),
+                    icon: MdiIcons.rocket,
+                    title: 'about2-2'.tr(),
+                    content: 'about2-2-1'.tr(),
+                  ),
                 ),
-                SizedBox(width: 40.0),
-                Speciality(
-                  delay: Duration(milliseconds: 3000),
-                  icon: MdiIcons.circleExpand,
-                  title: 'about2-3'.tr(),
-                  content: 'about2-3-1'.tr(),
+                Expanded(
+                  child: Speciality(
+                    delay: Duration(milliseconds: 3000),
+                    icon: MdiIcons.circleExpand,
+                    title: 'about2-3'.tr(),
+                    content: 'about2-3-1'.tr(),
+                  ),
                 ),
               ],
             ),

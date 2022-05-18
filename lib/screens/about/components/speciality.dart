@@ -1,14 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:morphable_shape/morphable_shape.dart';
-import 'package:portfolio_website/animations/blur_animation.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/hexagon_progress_animation.dart';
-import 'package:portfolio_website/animations/parallax_widget.dart';
 import 'package:portfolio_website/responsive.dart';
-import 'package:portfolio_website/screens/about/components/subtitle.dart';
 
 import '../../../animations/linear_animaiton.dart';
 
@@ -34,7 +29,6 @@ class Speciality extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Row(
@@ -43,17 +37,33 @@ class Speciality extends StatelessWidget {
             FadeAnimation(
               delay: delay + firstDelay,
               offset: Offset(0.0, 0.0),
-              child: HexagonProgressAnimation(
-                delay: delay + firstDelay,
-                size: 60.0,
-                strokeWidth: 5.0,
-                icon: icon,
+              child: SizedBox(
+                width: 60.0,
+                height: 60.0,
+                child: HexagonProgressAnimation(
+                  delay: delay + firstDelay,
+                  size: 60.0,
+                  strokeWidth: 5.0,
+                  icon: icon,
+                ),
               ),
             ),
             SizedBox(width: Responsive.isDesktop(context) ? 14.0 : 10.0),
             LinearAnimation(
-                delay: delay + secondDelay,
-                child: SpecialityTitle(text: title)),
+              delay: delay + secondDelay,
+              child: SizedBox(
+                width: context.locale == Locale('en', 'US')
+                    ? Responsive.isDesktop(context)
+                        ? 120.0
+                        : 100.0
+                    : Responsive.isDesktop(context)
+                        ? 90.0
+                        : 70.0,
+                child: SpecialityTitle(
+                  text: title,
+                ),
+              ),
+            ),
           ],
         ),
         SizedBox(height: 8.0),
@@ -80,33 +90,18 @@ class SpecialityTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double spacing = 0.5;
-
-    if (!Responsive.isDesktop(context)) {
-      if (text.length > 10) {
-        spacing = 0.5;
-      } else if (text.length > 8) {
-        spacing = 2.6;
-      } else if (text.length > 4) {
-        spacing = 9.2;
-      }
-    }
-
     return Text(
       text,
+      textAlign: TextAlign.center,
       style: context.locale == Locale('en', 'US')
           ? GoogleFonts.bebasNeue(
               fontSize: Responsive.isDesktop(context) ? 30.0 : 22.0,
               fontWeight: FontWeight.w900,
-              letterSpacing: spacing,
-              wordSpacing: 0.0,
             )
           : TextStyle(
               fontFamily: 'SCDREAM',
               fontSize: Responsive.isDesktop(context) ? 28.0 : 20.0,
               fontWeight: FontWeight.w900,
-              letterSpacing: spacing,
-              wordSpacing: 0.0,
             ),
     );
   }

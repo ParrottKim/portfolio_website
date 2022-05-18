@@ -11,12 +11,13 @@
 :bulb: Single-page Layout  
 :bulb: Various Animation  
 :bulb: Fully Responsive  
-:bulb: Dark Theme (You can change with click the Parrot)  
+:bulb: Dark Theme  
+:bulb: Localization (Korean/English)
 
 ## :clipboard: Sections
 :heavy_check_mark: Home  
 :heavy_check_mark: About  
-:construction: Services  
+:construction: Techs  
 :construction: Projects  
 :construction: Contact  
 

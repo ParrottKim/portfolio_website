@@ -85,7 +85,8 @@ class _SplashScreenState extends State<SplashScreen> {
       color: Theme.of(context).colorScheme.secondary,
       child: Center(
         child: PolygonProgressIndicator(
-          size: 60.0,
+          width: 60.0,
+          height: 60.0,
           child: SvgPicture.asset(
             'assets/icons/parrot.svg',
             color: Colors.white,

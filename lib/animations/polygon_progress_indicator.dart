@@ -6,10 +6,11 @@ import 'package:portfolio_website/responsive.dart';
 
 class PolygonProgressIndicator extends StatefulWidget {
   final Widget child;
+  final double width;
+  final double height;
   final Duration delay;
   final Duration duration;
   final int sides;
-  final double size;
   final double strokeWidth;
   final Color color;
   final bool isRepeat;
@@ -17,10 +18,11 @@ class PolygonProgressIndicator extends StatefulWidget {
   const PolygonProgressIndicator({
     Key? key,
     required this.child,
+    this.width = 60.0,
+    this.height = 60.0,
     this.delay = const Duration(milliseconds: 0),
     this.duration = const Duration(milliseconds: 2000),
     this.sides = 6,
-    this.size = 60.0,
     this.strokeWidth = 2.0,
     this.color = Colors.white,
     this.isRepeat = true,
@@ -70,8 +72,8 @@ class _PolygonProgressIndicatorState extends State<PolygonProgressIndicator>
       return AnimatedBuilder(
         animation: _controller,
         builder: (context, child) => Container(
-          width: widget.size,
-          height: widget.size,
+          width: widget.width,
+          height: widget.height,
           decoration: ShapeDecoration(
             shape: PolygonShapeBorder(
               sides: widget.sides,
@@ -96,8 +98,8 @@ class _PolygonProgressIndicatorState extends State<PolygonProgressIndicator>
       return AnimatedBuilder(
         animation: _controller,
         builder: (context, child) => Container(
-          width: widget.size,
-          height: widget.size,
+          width: widget.width,
+          height: widget.height,
           decoration: ShapeDecoration(
             shape: RectangleShapeBorder(
               border: DynamicBorderSide(

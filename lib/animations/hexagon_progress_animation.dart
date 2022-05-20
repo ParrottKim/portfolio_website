@@ -5,23 +5,23 @@ import 'package:morphable_shape/morphable_shape.dart';
 import 'package:portfolio_website/responsive.dart';
 
 class HexagonProgressAnimation extends StatefulWidget {
+  final Widget? child;
   final Duration delay;
   final Duration duration;
   final double? size;
   final double strokeWidth;
   final Color barColor;
   final AssetImage? image;
-  final IconData? icon;
 
   const HexagonProgressAnimation({
     Key? key,
+    this.child,
     this.delay = const Duration(milliseconds: 0),
     this.duration = const Duration(milliseconds: 500),
     this.barColor = Colors.teal,
     this.size,
     this.strokeWidth = 20.0,
     this.image,
-    this.icon,
   }) : super(key: key);
 
   @override
@@ -83,10 +83,7 @@ class _HexagonProgressAnimationState extends State<HexagonProgressAnimation>
             ),
           ),
         ),
-        child: widget.icon != null
-            ? Icon(widget.icon,
-                size: Responsive.isDesktop(context) ? 36.0 : 28.0)
-            : null,
+        child: widget.child != null ? widget.child : null,
       ),
     );
   }

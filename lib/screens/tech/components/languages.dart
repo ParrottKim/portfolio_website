@@ -24,7 +24,6 @@ class Languages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
       children: [
         FadeAnimation(
           delay: delay,
@@ -55,10 +54,11 @@ class Languages extends StatelessWidget {
                   delay: firstDelay,
                   duration: Duration(milliseconds: 1000),
                   sides: 4,
+                  width: double.infinity,
                   height: 20.0,
                   color: Colors.teal,
                   isRepeat: false,
-                  child: Container(),
+                  child: SizedBox(),
                 ),
               ),
               FadeAnimation(

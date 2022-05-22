@@ -5,7 +5,7 @@ import 'package:morphable_shape/morphable_shape.dart';
 import 'package:portfolio_website/responsive.dart';
 
 class PolygonProgressIndicator extends StatefulWidget {
-  final Widget child;
+  final Widget? child;
   final double width;
   final double height;
   final Duration delay;
@@ -17,7 +17,7 @@ class PolygonProgressIndicator extends StatefulWidget {
 
   const PolygonProgressIndicator({
     Key? key,
-    required this.child,
+    this.child,
     this.width = 60.0,
     this.height = 60.0,
     this.delay = const Duration(milliseconds: 0),
@@ -39,6 +39,49 @@ class _PolygonProgressIndicatorState extends State<PolygonProgressIndicator>
   late Animation<double> _startAnimation;
   late Animation<double> _endAnimation;
 
+  bool _isVisible = false;
+
+  _getPolygon() {
+    if (widget.sides == 0) {
+      return CircleShapeBorder(
+        border: DynamicBorderSide(
+          style: BorderStyle.solid,
+          width: widget.strokeWidth,
+          color: widget.color,
+          begin: _startAnimation.value.toPercentLength,
+          end: _endAnimation.value.toPercentLength,
+          strokeJoin: StrokeJoin.miter,
+          strokeCap: StrokeCap.square,
+        ),
+      );
+    } else if (widget.sides == 4) {
+      return RectangleShapeBorder(
+        border: DynamicBorderSide(
+          style: BorderStyle.solid,
+          width: widget.strokeWidth,
+          color: widget.color,
+          begin: _startAnimation.value.toPercentLength,
+          end: _endAnimation.value.toPercentLength,
+          strokeJoin: StrokeJoin.miter,
+          strokeCap: StrokeCap.square,
+        ),
+      );
+    } else {
+      return PolygonShapeBorder(
+        sides: widget.sides,
+        border: DynamicBorderSide(
+          style: BorderStyle.solid,
+          width: widget.strokeWidth,
+          color: widget.color,
+          begin: _startAnimation.value.toPercentLength,
+          end: _endAnimation.value.toPercentLength,
+          strokeJoin: StrokeJoin.miter,
+          strokeCap: StrokeCap.square,
+        ),
+      );
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -48,14 +91,22 @@ class _PolygonProgressIndicatorState extends State<PolygonProgressIndicator>
     _endAnimation = Tween<double>(begin: 0.0, end: 100.0).animate(_controller);
 
     Future.delayed(widget.delay, () {
+      setState(() {
+        _isVisible = true;
+      });
       if (mounted) {
-        _controller
-          ..forward()
-          ..addListener(() {
-            if (widget.isRepeat && _controller.isCompleted) {
+        _controller.forward();
+        _controller.addListener(() {
+          if (_controller.isCompleted) {
+            if (widget.isRepeat) {
               _controller.repeat();
+            } else {
+              setState(() {
+                _isVisible = false;
+              });
             }
-          });
+          }
+        });
       }
     });
   }
@@ -68,57 +119,22 @@ class _PolygonProgressIndicatorState extends State<PolygonProgressIndicator>
 
   @override
   Widget build(BuildContext context) {
-    if (widget.sides != 4) {
-      return AnimatedBuilder(
+    return Visibility(
+      visible: _isVisible,
+      child: AnimatedBuilder(
         animation: _controller,
         builder: (context, child) => Container(
           width: widget.width,
           height: widget.height,
           decoration: ShapeDecoration(
-            shape: PolygonShapeBorder(
-              sides: widget.sides,
-              border: DynamicBorderSide(
-                style: BorderStyle.solid,
-                width: widget.strokeWidth,
-                color: widget.color,
-                begin: _startAnimation.value.toPercentLength,
-                end: _endAnimation.value.toPercentLength,
-                strokeJoin: StrokeJoin.miter,
-                strokeCap: StrokeCap.square,
-              ),
-            ),
+            shape: _getPolygon(),
           ),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: widget.child,
           ),
         ),
-      );
-    } else {
-      return AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) => Container(
-          width: widget.width,
-          height: widget.height,
-          decoration: ShapeDecoration(
-            shape: RectangleShapeBorder(
-              border: DynamicBorderSide(
-                style: BorderStyle.solid,
-                width: widget.strokeWidth,
-                color: widget.color,
-                begin: _startAnimation.value.toPercentLength,
-                end: _endAnimation.value.toPercentLength,
-                strokeJoin: StrokeJoin.miter,
-                strokeCap: StrokeCap.square,
-              ),
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: widget.child,
-          ),
-        ),
-      );
-    }
+      ),
+    );
   }
 }

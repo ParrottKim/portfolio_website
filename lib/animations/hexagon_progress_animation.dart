@@ -61,7 +61,11 @@ class _HexagonProgressAnimationState extends State<HexagonProgressAnimation>
         height: widget.size,
         decoration: ShapeDecoration(
           image: widget.image != null
-              ? DecorationImage(image: widget.image!, scale: 1.5)
+              ? DecorationImage(
+                  image: widget.image!,
+                  scale: 1.4,
+                  alignment: Alignment.bottomCenter,
+                )
               : null,
           color: Theme.of(context).canvasColor,
           shape: PolygonShapeBorder(
@@ -83,7 +87,12 @@ class _HexagonProgressAnimationState extends State<HexagonProgressAnimation>
             ),
           ),
         ),
-        child: widget.child != null ? widget.child : null,
+        child: widget.child != null
+            ? Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: widget.child,
+              )
+            : null,
       ),
     );
   }

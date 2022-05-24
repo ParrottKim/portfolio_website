@@ -1,29 +1,95 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/hexagon_progress_animation.dart';
+import 'package:portfolio_website/models/speciality_model.dart';
 import 'package:portfolio_website/responsive.dart';
 
 import '../../../animations/linear_animaiton.dart';
 
 class Speciality extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String content;
   final Duration delay;
-  final Duration firstDelay;
-  final Duration secondDelay;
-  final Duration thirdDelay;
   const Speciality({
     Key? key,
-    required this.icon,
-    required this.title,
-    required this.content,
-    this.delay = const Duration(milliseconds: 500),
-    this.firstDelay = const Duration(milliseconds: 500),
-    this.secondDelay = const Duration(milliseconds: 750),
-    this.thirdDelay = const Duration(milliseconds: 1000),
+    required this.delay,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Responsive(
+          mobile: SpecialityGridView(
+            delay: delay,
+            crossAxisCount: 1,
+          ),
+          desktop: SpecialityGridView(
+            delay: delay,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class SpecialityGridView extends StatelessWidget {
+  final Duration delay;
+  final int crossAxisCount;
+  const SpecialityGridView({
+    Key? key,
+    required this.delay,
+    this.crossAxisCount = 3,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    List specialities = [
+      SpecialityModel(
+        icon: MdiIcons.eye,
+        title: 'about2-1'.tr(),
+        content: 'about2-1-1'.tr(),
+      ),
+      SpecialityModel(
+        icon: MdiIcons.rocket,
+        title: 'about2-2'.tr(),
+        content: 'about2-2-1'.tr(),
+      ),
+      SpecialityModel(
+        icon: MdiIcons.eye,
+        title: 'about2-3'.tr(),
+        content: 'about2-3-1'.tr(),
+      ),
+    ];
+
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.zero,
+      itemCount: specialities.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        crossAxisSpacing: 10.0,
+        mainAxisSpacing: 10.0,
+        mainAxisExtent: 120.0,
+      ),
+      itemBuilder: (context, index) => SpecialityBuilder(
+        delay: delay * index,
+        speciality: specialities[index],
+      ),
+    );
+  }
+}
+
+class SpecialityBuilder extends StatelessWidget {
+  final Duration delay;
+  final SpecialityModel speciality;
+  const SpecialityBuilder({
+    Key? key,
+    required this.delay,
+    required this.speciality,
   }) : super(key: key);
 
   @override
@@ -35,32 +101,32 @@ class Speciality extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             FadeAnimation(
-              delay: delay + firstDelay,
+              delay: delay + Duration(milliseconds: 500),
               offset: Offset(0.0, 0.0),
               child: SizedBox(
                 width: 60.0,
                 height: 60.0,
                 child: HexagonProgressAnimation(
-                  delay: delay + firstDelay,
+                  delay: delay + Duration(milliseconds: 500),
                   size: 60.0,
                   strokeWidth: 5.0,
-                  child: Icon(icon),
+                  child: Icon(speciality.icon),
                 ),
               ),
             ),
-            SizedBox(width: Responsive.isDesktop(context) ? 14.0 : 10.0),
+            SizedBox(width: 20.0),
             LinearAnimation(
-              delay: delay + secondDelay,
+              delay: delay + Duration(milliseconds: 750),
               child: SizedBox(
                 width: context.locale == Locale('en', 'US')
                     ? Responsive.isDesktop(context)
-                        ? 120.0
-                        : 100.0
+                        ? 130.0
+                        : 110.0
                     : Responsive.isDesktop(context)
                         ? 90.0
                         : 70.0,
                 child: SpecialityTitle(
-                  text: title,
+                  text: speciality.title!,
                 ),
               ),
             ),
@@ -68,9 +134,9 @@ class Speciality extends StatelessWidget {
         ),
         SizedBox(height: 8.0),
         FadeAnimation(
-          delay: delay + thirdDelay,
+          delay: delay + Duration(milliseconds: 1000),
           child: Text(
-            content,
+            speciality.content!,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: 'SCDREAM',
@@ -95,12 +161,12 @@ class SpecialityTitle extends StatelessWidget {
       textAlign: TextAlign.center,
       style: context.locale == Locale('en', 'US')
           ? GoogleFonts.bebasNeue(
-              fontSize: Responsive.isDesktop(context) ? 30.0 : 22.0,
+              fontSize: 28.0,
               fontWeight: FontWeight.w900,
             )
           : TextStyle(
               fontFamily: 'SCDREAM',
-              fontSize: Responsive.isDesktop(context) ? 28.0 : 20.0,
+              fontSize: 24.0,
               fontWeight: FontWeight.w900,
             ),
     );

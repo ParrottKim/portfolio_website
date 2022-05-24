@@ -88,8 +88,7 @@ class _HexagonProgressAnimationState extends State<HexagonProgressAnimation>
           ),
         ),
         child: widget.child != null
-            ? Padding(
-                padding: const EdgeInsets.all(12.0),
+            ? Center(
                 child: widget.child,
               )
             : null,

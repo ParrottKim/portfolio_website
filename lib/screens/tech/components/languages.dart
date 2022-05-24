@@ -23,79 +23,105 @@ class Languages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Stack(
       children: [
+        PolygonProgressIndicator(
+          delay: firstDelay,
+          duration: Duration(milliseconds: 1000),
+          sides: 0,
+          width: 60.0,
+          height: 60.0,
+          color: Colors.teal,
+          isRepeat: false,
+          child: SizedBox(),
+        ),
         FadeAnimation(
-          delay: delay,
+          delay: secondDelay,
+          duration: Duration(milliseconds: 1000),
           offset: Offset(0.0, 0.0),
-          child: SizedBox(
+          child: Container(
             width: 60.0,
             height: 60.0,
-            child: HexagonProgressAnimation(
-              delay: Duration(milliseconds: 1000),
-              size: 60.0,
-              strokeWidth: 5.0,
-              child: SvgPicture.asset(
-                asset,
-                color: Theme.of(context).colorScheme.primary,
-                width: Responsive.isDesktop(context) ? 36.0 : 28.0,
-                height: Responsive.isDesktop(context) ? 36.0 : 28.0,
-              ),
-            ),
-          ),
-        ),
-        SizedBox(width: 16.0),
-        Expanded(
-          child: Stack(
-            children: [
-              RotatedBox(
-                quarterTurns: 2,
-                child: PolygonProgressIndicator(
-                  delay: firstDelay,
-                  duration: Duration(milliseconds: 1000),
-                  sides: 4,
-                  width: double.infinity,
-                  height: 20.0,
-                  color: Colors.teal,
-                  isRepeat: false,
-                  child: SizedBox(),
-                ),
-              ),
-              FadeAnimation(
-                delay: secondDelay,
-                offset: Offset(0.0, 0.0),
-                child: Container(
-                  height: 20.0,
-                  color: Theme.of(context).canvasColor,
-                ),
-              ),
-              LinearAnimation(
-                delay: secondDelay,
-                duration: Duration(milliseconds: 1000),
-                curve: Curves.easeInCubic,
-                alignment: Alignment.topLeft,
-                child: LinearProgressIndicator(
-                  minHeight: 20.0,
-                  color: Colors.teal,
-                  backgroundColor: Colors.transparent,
-                  value: percentage,
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(width: 16.0),
-        FadeAnimation(
-          delay: secondDelay + Duration(milliseconds: 1000),
-          offset: Offset(0.0, 0.0),
-          child: Text(
-            '${(percentage * 100).toInt()} %',
-            style: TextStyle(
-              fontFamily: 'SCDREAM',
-            ),
+            decoration: BoxDecoration(
+                color: Colors.teal,
+                borderRadius: BorderRadius.all(Radius.circular(40.0))),
           ),
         ),
       ],
     );
+    // return Row(
+    //   children: [
+    //     FadeAnimation(
+    //       delay: delay,
+    //       offset: Offset(0.0, 0.0),
+    //       child: SizedBox(
+    //         width: 60.0,
+    //         height: 60.0,
+    //         child: HexagonProgressAnimation(
+    //           delay: Duration(milliseconds: 1000),
+    //           size: 60.0,
+    //           strokeWidth: 5.0,
+    //           child: SvgPicture.asset(
+    //             asset,
+    //             color: Theme.of(context).colorScheme.primary,
+    //             width: Responsive.isDesktop(context) ? 36.0 : 28.0,
+    //             height: Responsive.isDesktop(context) ? 36.0 : 28.0,
+    //           ),
+    //         ),
+    //       ),
+    //     ),
+    //     SizedBox(width: 16.0),
+    //     Expanded(
+    //       child: Stack(
+    //         children: [
+    //           RotatedBox(
+    //             quarterTurns: 2,
+    //             child: PolygonProgressIndicator(
+    //               delay: firstDelay,
+    //               duration: Duration(milliseconds: 1000),
+    //               sides: 4,
+    //               width: double.infinity,
+    //               height: 20.0,
+    //               color: Colors.teal,
+    //               isRepeat: false,
+    //               child: SizedBox(),
+    //             ),
+    //           ),
+    //           FadeAnimation(
+    //             delay: secondDelay,
+    //             offset: Offset(0.0, 0.0),
+    //             child: Container(
+    //               height: 20.0,
+    //               color: Theme.of(context).canvasColor,
+    //             ),
+    //           ),
+    //           LinearAnimation(
+    //             delay: secondDelay,
+    //             duration: Duration(milliseconds: 1000),
+    //             curve: Curves.easeInCubic,
+    //             alignment: Alignment.topLeft,
+    //             child: LinearProgressIndicator(
+    //               minHeight: 20.0,
+    //               color: Colors.teal,
+    //               backgroundColor: Colors.transparent,
+    //               value: percentage,
+    //             ),
+    //           ),
+    //         ],
+    //       ),
+    //     ),
+    //     SizedBox(width: 16.0),
+    //     FadeAnimation(
+    //       delay: secondDelay + Duration(milliseconds: 1000),
+    //       offset: Offset(0.0, 0.0),
+    //       child: Text(
+    //         '${(percentage * 100).toInt()} %',
+    //         style: TextStyle(
+    //           fontFamily: 'SCDREAM',
+    //         ),
+    //       ),
+    //     ),
+    //   ],
+    // );
   }
 }

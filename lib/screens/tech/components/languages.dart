@@ -4,29 +4,91 @@ import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/hexagon_progress_animation.dart';
 import 'package:portfolio_website/animations/linear_animaiton.dart';
 import 'package:portfolio_website/animations/polygon_progress_indicator.dart';
+import 'package:portfolio_website/models/language_model.dart';
 import 'package:portfolio_website/responsive.dart';
 
 class Languages extends StatelessWidget {
-  final String asset;
-  final double percentage;
   final Duration delay;
-  final Duration firstDelay;
-  final Duration secondDelay;
   const Languages({
     Key? key,
-    required this.asset,
-    this.percentage = 0.0,
-    this.delay = const Duration(milliseconds: 1000),
-    this.firstDelay = const Duration(milliseconds: 1250),
-    this.secondDelay = const Duration(milliseconds: 2250),
+    required this.delay,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Responsive(
+      mobile: LanguageGridView(
+        delay: delay,
+        crossAxisCount: 3,
+      ),
+      desktop: LanguageGridView(
+        delay: delay,
+      ),
+    );
+  }
+}
+
+class LanguageGridView extends StatelessWidget {
+  final Duration delay;
+  final int crossAxisCount;
+  const LanguageGridView({
+    Key? key,
+    required this.delay,
+    this.crossAxisCount = 6,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    List languages = [
+      LanguageModel(
+        asset: 'assets/icons/flutter.svg',
+        title: 'Flutter',
+      ),
+      LanguageModel(
+        asset: 'assets/icons/csharp.svg',
+        title: 'C#',
+      ),
+      LanguageModel(
+        asset: 'assets/icons/javascript.svg',
+        title: 'Javascript',
+      ),
+    ];
+
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.zero,
+      itemCount: languages.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        crossAxisSpacing: 10.0,
+        mainAxisSpacing: 10.0,
+        mainAxisExtent: 120.0,
+      ),
+      itemBuilder: (context, index) => LanguageCircularCard(
+        delay: delay * ((index + 1) / 2),
+        language: languages[index],
+      ),
+    );
+  }
+}
+
+class LanguageCircularCard extends StatelessWidget {
+  final Duration delay;
+  final LanguageModel language;
+  const LanguageCircularCard({
+    Key? key,
+    required this.delay,
+    required this.language,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.center,
       children: [
         PolygonProgressIndicator(
-          delay: firstDelay,
+          delay: delay,
           duration: Duration(milliseconds: 1000),
           sides: 0,
           width: 60.0,
@@ -36,15 +98,21 @@ class Languages extends StatelessWidget {
           child: SizedBox(),
         ),
         FadeAnimation(
-          delay: secondDelay,
-          duration: Duration(milliseconds: 1000),
+          delay: delay + Duration(milliseconds: 1000),
           offset: Offset(0.0, 0.0),
           child: Container(
             width: 60.0,
             height: 60.0,
             decoration: BoxDecoration(
-                color: Colors.teal,
-                borderRadius: BorderRadius.all(Radius.circular(40.0))),
+              color: Colors.teal,
+              borderRadius: BorderRadius.all(
+                Radius.circular(40.0),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SvgPicture.asset(language.asset!, color: Colors.white),
+            ),
           ),
         ),
       ],

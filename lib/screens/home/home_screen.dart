@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Responsive(
       mobile: HomeScreenMobile(),
-      tablet: HomeScreenDesktop(),
+      tablet: HomeScreenTablet(),
       desktop: HomeScreenDesktop(),
     );
   }
@@ -30,6 +30,22 @@ class HomeScreenMobile extends StatelessWidget {
         ProfileImage(size: 200.0),
         SizedBox(height: 20.0),
         Introduction(),
+      ],
+    );
+  }
+}
+
+class HomeScreenTablet extends StatelessWidget {
+  const HomeScreenTablet({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Introduction(),
+        SizedBox(width: 120.0),
+        ProfileImage(size: 300.0),
       ],
     );
   }

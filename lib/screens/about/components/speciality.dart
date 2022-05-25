@@ -18,19 +18,14 @@ class Speciality extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Responsive(
-          mobile: SpecialityGridView(
-            delay: delay,
-            crossAxisCount: 1,
-          ),
-          desktop: SpecialityGridView(
-            delay: delay,
-          ),
-        ),
-      ],
+    return Responsive(
+      mobile: SpecialityGridView(
+        delay: delay,
+        crossAxisCount: 1,
+      ),
+      desktop: SpecialityGridView(
+        delay: delay,
+      ),
     );
   }
 }
@@ -76,7 +71,7 @@ class SpecialityGridView extends StatelessWidget {
         mainAxisExtent: 120.0,
       ),
       itemBuilder: (context, index) => SpecialityBuilder(
-        delay: delay * index,
+        delay: delay * (index + 1),
         speciality: specialities[index],
       ),
     );
@@ -101,13 +96,13 @@ class SpecialityBuilder extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             FadeAnimation(
-              delay: delay + Duration(milliseconds: 500),
+              delay: delay,
               offset: Offset(0.0, 0.0),
               child: SizedBox(
                 width: 60.0,
                 height: 60.0,
                 child: HexagonProgressAnimation(
-                  delay: delay + Duration(milliseconds: 500),
+                  delay: delay,
                   size: 60.0,
                   strokeWidth: 5.0,
                   child: Icon(speciality.icon),
@@ -116,7 +111,7 @@ class SpecialityBuilder extends StatelessWidget {
             ),
             SizedBox(width: 20.0),
             LinearAnimation(
-              delay: delay + Duration(milliseconds: 750),
+              delay: delay + Duration(milliseconds: 250),
               child: SizedBox(
                 width: context.locale == Locale('en', 'US')
                     ? Responsive.isDesktop(context)
@@ -134,7 +129,7 @@ class SpecialityBuilder extends StatelessWidget {
         ),
         SizedBox(height: 8.0),
         FadeAnimation(
-          delay: delay + Duration(milliseconds: 1000),
+          delay: delay + Duration(milliseconds: 500),
           child: Text(
             speciality.content!,
             textAlign: TextAlign.center,

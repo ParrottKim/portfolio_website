@@ -55,20 +55,18 @@ class LanguageGridView extends StatelessWidget {
       ),
     ];
 
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.zero,
-      itemCount: languages.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 10.0,
-        mainAxisSpacing: 2.0,
-        mainAxisExtent: 120.0,
-      ),
-      itemBuilder: (context, index) => LanguageCircularCard(
-        delay: delay * ((index + 1) / 4),
-        language: languages[index],
+    return SizedBox(
+      height: 60.0,
+      child: ListView.separated(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: languages.length,
+        itemBuilder: (context, index) => LanguageCircularCard(
+          delay: delay * ((index + 1) / 4),
+          language: languages[index],
+        ),
+        separatorBuilder: (context, index) => SizedBox(width: 20.0),
       ),
     );
   }
@@ -118,79 +116,5 @@ class LanguageCircularCard extends StatelessWidget {
         ),
       ],
     );
-    // return Row(
-    //   children: [
-    //     FadeAnimation(
-    //       delay: delay,
-    //       offset: Offset(0.0, 0.0),
-    //       child: SizedBox(
-    //         width: 60.0,
-    //         height: 60.0,
-    //         child: HexagonProgressAnimation(
-    //           delay: Duration(milliseconds: 1000),
-    //           size: 60.0,
-    //           strokeWidth: 5.0,
-    //           child: SvgPicture.asset(
-    //             asset,
-    //             color: Theme.of(context).colorScheme.primary,
-    //             width: Responsive.isDesktop(context) ? 36.0 : 28.0,
-    //             height: Responsive.isDesktop(context) ? 36.0 : 28.0,
-    //           ),
-    //         ),
-    //       ),
-    //     ),
-    //     SizedBox(width: 16.0),
-    //     Expanded(
-    //       child: Stack(
-    //         children: [
-    //           RotatedBox(
-    //             quarterTurns: 2,
-    //             child: PolygonProgressIndicator(
-    //               delay: firstDelay,
-    //               duration: Duration(milliseconds: 1000),
-    //               sides: 4,
-    //               width: double.infinity,
-    //               height: 20.0,
-    //               color: Colors.teal,
-    //               isRepeat: false,
-    //               child: SizedBox(),
-    //             ),
-    //           ),
-    //           FadeAnimation(
-    //             delay: secondDelay,
-    //             offset: Offset(0.0, 0.0),
-    //             child: Container(
-    //               height: 20.0,
-    //               color: Theme.of(context).canvasColor,
-    //             ),
-    //           ),
-    //           LinearAnimation(
-    //             delay: secondDelay,
-    //             duration: Duration(milliseconds: 1000),
-    //             curve: Curves.easeInCubic,
-    //             alignment: Alignment.topLeft,
-    //             child: LinearProgressIndicator(
-    //               minHeight: 20.0,
-    //               color: Colors.teal,
-    //               backgroundColor: Colors.transparent,
-    //               value: percentage,
-    //             ),
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //     SizedBox(width: 16.0),
-    //     FadeAnimation(
-    //       delay: secondDelay + Duration(milliseconds: 1000),
-    //       offset: Offset(0.0, 0.0),
-    //       child: Text(
-    //         '${(percentage * 100).toInt()} %',
-    //         style: TextStyle(
-    //           fontFamily: 'SCDREAM',
-    //         ),
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 }

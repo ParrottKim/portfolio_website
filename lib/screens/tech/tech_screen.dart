@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/linear_animaiton.dart';
 import 'package:portfolio_website/responsive.dart';
-import 'package:portfolio_website/screens/about/components/about_subtitle.dart';
+import 'package:portfolio_website/screens/main/components/subtitle.dart';
 import 'package:portfolio_website/screens/tech/components/languages.dart';
 
 class TechScreen extends StatelessWidget {
@@ -20,13 +21,11 @@ class TechScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.baseline,
         textBaseline: TextBaseline.ideographic,
         children: [
-          LinearAnimation(
+          Subtitle(
+            text: 'TECHNOLOGIES',
             delay: Duration(milliseconds: 500),
-            child: Subtitle(
-              text: 'TECHNOLOGIES',
-              size: Responsive.isDesktop(context) ? 60.0 : 46.0,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+            size: Responsive.isDesktop(context) ? 60.0 : 46.0,
+            color: Theme.of(context).colorScheme.primary,
           ),
           FadeAnimation(
             delay: Duration(milliseconds: 750),
@@ -43,11 +42,29 @@ class TechScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 60.0),
-          Column(
-            children: [
-              Subtitle(text: text)
-              Languages(delay: const Duration(milliseconds: 1500)),
-            ],
+          Padding(
+            padding: !Responsive.isMobile(context)
+                ? EdgeInsets.symmetric(horizontal: size.width * 0.07)
+                : EdgeInsets.zero,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                LinearAnimation(
+                  delay: const Duration(milliseconds: 1500),
+                  child: Text(
+                    '< LANGUAGES >',
+                    style: TextStyle(
+                      fontFamily: 'SCDREAM',
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Languages(delay: const Duration(milliseconds: 1500)),
+              ],
+            ),
           ),
         ],
       ),

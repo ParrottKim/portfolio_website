@@ -95,9 +95,10 @@ class SpecialityBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        if (Responsive.isDesktop(context))
+        if (!Responsive.isMobile(context))
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -127,7 +128,7 @@ class SpecialityBuilder extends StatelessWidget {
               ),
             ],
           ),
-        if (!Responsive.isDesktop(context))
+        if (Responsive.isMobile(context))
           Column(
             children: [
               FadeAnimation(

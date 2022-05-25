@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_website/animations/linear_animaiton.dart';
+
+class Subtitle extends StatelessWidget {
+  final String text;
+  final Duration delay;
+  final double size;
+  final Color color;
+  const Subtitle({
+    Key? key,
+    required this.text,
+    this.delay = const Duration(milliseconds: 1000),
+    this.size = 40.0,
+    this.color = Colors.white,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LinearAnimation(
+      delay: delay,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              text,
+              style: GoogleFonts.bebasNeue(
+                fontSize: size,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+            Container(
+              height: 4.0,
+              width: 50.0,
+              decoration: BoxDecoration(
+                color: Colors.teal,
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.teal[200]!,
+                    Colors.teal,
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
-import 'package:portfolio_website/animations/linear_animaiton.dart';
 import 'package:portfolio_website/responsive.dart';
 import 'package:portfolio_website/screens/about/components/catchphrase.dart';
 import 'package:portfolio_website/screens/about/components/speciality.dart';
-import 'package:portfolio_website/screens/about/components/about_subtitle.dart';
+import 'package:portfolio_website/screens/main/components/subtitle.dart';
 
 class AboutScreen extends StatelessWidget {
   AboutScreen({Key? key}) : super(key: key);
@@ -23,19 +22,16 @@ class AboutScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.baseline,
             textBaseline: TextBaseline.ideographic,
             children: [
-              LinearAnimation(
+              Subtitle(
+                text: 'ABOUT ME',
                 delay: Duration(milliseconds: 500),
-                child: AboutSubtitle(
-                  text: 'ABOUT ME',
-                  size: Responsive.isDesktop(context) ? 60.0 : 46.0,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
+                size: Responsive.isDesktop(context) ? 60.0 : 46.0,
+                color: Theme.of(context).colorScheme.primary,
               ),
               FadeAnimation(
-                delay: Duration(milliseconds: 750),
-                duration: Duration(milliseconds: 500),
-                offset: Offset(-20.0, 0.0),
-                child: Catchphrase(),
+                child: Catchphrase(
+                  delay: Duration(milliseconds: 750),
+                ),
               ),
             ],
           ),

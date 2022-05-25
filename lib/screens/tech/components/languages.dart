@@ -23,6 +23,7 @@ class Languages extends StatelessWidget {
       ),
       desktop: LanguageGridView(
         delay: delay,
+        crossAxisCount: 3,
       ),
     );
   }
@@ -62,11 +63,11 @@ class LanguageGridView extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: 10.0,
-        mainAxisSpacing: 10.0,
+        mainAxisSpacing: 2.0,
         mainAxisExtent: 120.0,
       ),
       itemBuilder: (context, index) => LanguageCircularCard(
-        delay: delay * ((index + 1) / 2),
+        delay: delay * ((index + 1) / 4),
         language: languages[index],
       ),
     );
@@ -91,8 +92,8 @@ class LanguageCircularCard extends StatelessWidget {
           delay: delay,
           duration: Duration(milliseconds: 1000),
           sides: 0,
-          width: 60.0,
-          height: 60.0,
+          width: 58.0,
+          height: 58.0,
           color: Colors.teal,
           isRepeat: false,
           child: SizedBox(),

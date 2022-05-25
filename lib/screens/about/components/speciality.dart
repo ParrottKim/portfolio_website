@@ -22,9 +22,12 @@ class Speciality extends StatelessWidget {
       mobile: SpecialityGridView(
         delay: delay,
         crossAxisCount: 1,
+        mainAxisExtent: 170.0,
       ),
       desktop: SpecialityGridView(
         delay: delay,
+        crossAxisCount: 3,
+        mainAxisExtent: 120.0,
       ),
     );
   }
@@ -33,10 +36,12 @@ class Speciality extends StatelessWidget {
 class SpecialityGridView extends StatelessWidget {
   final Duration delay;
   final int crossAxisCount;
+  final double mainAxisExtent;
   const SpecialityGridView({
     Key? key,
     required this.delay,
     this.crossAxisCount = 3,
+    this.mainAxisExtent = 120.0,
   }) : super(key: key);
 
   @override
@@ -68,7 +73,7 @@ class SpecialityGridView extends StatelessWidget {
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: 10.0,
         mainAxisSpacing: 10.0,
-        mainAxisExtent: 120.0,
+        mainAxisExtent: mainAxisExtent,
       ),
       itemBuilder: (context, index) => SpecialityBuilder(
         delay: delay * (index + 1),
@@ -92,42 +97,66 @@ class SpecialityBuilder extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            FadeAnimation(
-              delay: delay,
-              offset: Offset(0.0, 0.0),
-              child: SizedBox(
-                width: 60.0,
-                height: 60.0,
-                child: HexagonProgressAnimation(
-                  delay: delay,
-                  size: 60.0,
-                  strokeWidth: 5.0,
-                  child: Icon(speciality.icon),
+        if (Responsive.isDesktop(context))
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              FadeAnimation(
+                delay: delay,
+                offset: Offset(0.0, 0.0),
+                child: SizedBox(
+                  width: 60.0,
+                  height: 60.0,
+                  child: HexagonProgressAnimation(
+                    delay: delay,
+                    size: 60.0,
+                    strokeWidth: 5.0,
+                    child: Icon(speciality.icon),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(width: 20.0),
-            LinearAnimation(
-              delay: delay + Duration(milliseconds: 250),
-              child: SizedBox(
-                width: context.locale == Locale('en', 'US')
-                    ? Responsive.isDesktop(context)
-                        ? 130.0
-                        : 110.0
-                    : Responsive.isDesktop(context)
-                        ? 90.0
-                        : 70.0,
-                child: SpecialityTitle(
-                  text: speciality.title!,
+              SizedBox(width: 20.0),
+              LinearAnimation(
+                delay: delay + Duration(milliseconds: 250),
+                child: SizedBox(
+                  width: context.locale == Locale('en', 'US') ? 110.0 : 70.0,
+                  child: SpecialityTitle(
+                    text: speciality.title!,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-        SizedBox(height: 8.0),
+            ],
+          ),
+        if (!Responsive.isDesktop(context))
+          Column(
+            children: [
+              FadeAnimation(
+                delay: delay,
+                offset: Offset(0.0, 0.0),
+                child: SizedBox(
+                  width: 60.0,
+                  height: 60.0,
+                  child: HexagonProgressAnimation(
+                    delay: delay,
+                    size: 60.0,
+                    strokeWidth: 5.0,
+                    child: Icon(speciality.icon),
+                  ),
+                ),
+              ),
+              SizedBox(height: 12.0),
+              LinearAnimation(
+                delay: delay + Duration(milliseconds: 250),
+                alignment: Alignment.center,
+                child: SizedBox(
+                  child: SpecialityTitle(
+                    text: speciality.title!,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        SizedBox(height: Responsive.isDesktop(context) ? 16.0 : 8.0),
         FadeAnimation(
           delay: delay + Duration(milliseconds: 500),
           child: Text(

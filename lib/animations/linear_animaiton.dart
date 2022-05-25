@@ -29,7 +29,7 @@ class _LinearAnimationState extends State<LinearAnimation>
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this, duration: widget.duration);
-    _linearAnimation = Tween(begin: 0.0, end: 1.0)
+    _linearAnimation = Tween(begin: 0.0, end: 1.1)
         .animate(CurvedAnimation(parent: _controller, curve: widget.curve));
     Future.delayed(widget.delay, () {
       if (mounted) {

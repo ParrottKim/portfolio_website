@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 
-class Subtitle extends StatelessWidget {
+class AboutSubtitle extends StatelessWidget {
   final String text;
   final double size;
   final Color color;
-  const Subtitle(
+  const AboutSubtitle(
       {Key? key,
       required this.text,
       this.size = 40.0,

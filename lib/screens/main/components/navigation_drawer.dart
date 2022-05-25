@@ -51,11 +51,11 @@ class _DrawerItemListState extends State<DrawerItemList> {
   int _currentIndex = 0;
 
   final List<String> _sectionsName = [
-    "HOME",
-    "ABOUT",
-    "TECHS",
-    "PROJECTS",
-    "CONTACT"
+    'HOME',
+    'ABOUT',
+    'TECH STACK',
+    'PROJECTS',
+    'CONTACT'
   ];
 
   List<bool> _isHovering = [false, false, false, false, false];
@@ -70,8 +70,11 @@ class _DrawerItemListState extends State<DrawerItemList> {
         delay: Duration(milliseconds: 250 * index),
         offset: Offset(0, -10),
         child: InkWell(
-          onTap: () => Provider.of<ScreenProvider>(context, listen: false)
-              .updateScreen(index.toDouble()),
+          onTap: () {
+            Provider.of<ScreenProvider>(context, listen: false)
+                .updateScreen(index.toDouble());
+            Navigator.of(context).pop();
+          },
           onHover: (value) => setState(() => _isHovering[index] = value),
           hoverColor: Colors.transparent,
           child: Padding(

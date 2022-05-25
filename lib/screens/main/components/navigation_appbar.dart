@@ -64,11 +64,11 @@ class AppBarItemList extends StatefulWidget {
 
 class _AppBarItemListState extends State<AppBarItemList> {
   final List<String> _sectionsName = [
-    "HOME",
-    "ABOUT",
-    "TECHS",
-    "PROJECTS",
-    "CONTACT"
+    'HOME',
+    'ABOUT',
+    'TECH STACK',
+    'PROJECTS',
+    'CONTACT'
   ];
 
   List<bool> _isHovering = [false, false, false, false, false];
@@ -88,8 +88,8 @@ class _AppBarItemListState extends State<AppBarItemList> {
               .updateScreen(index.toDouble()),
           onHover: (value) => setState(() => _isHovering[index] = value),
           hoverColor: Colors.transparent,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.0),
+          child: Container(
+            width: 120.0,
             child: Stack(
               alignment: Alignment.center,
               children: [

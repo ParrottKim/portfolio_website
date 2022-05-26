@@ -28,10 +28,8 @@ class AboutScreen extends StatelessWidget {
                 size: Responsive.isDesktop(context) ? 60.0 : 46.0,
                 color: Theme.of(context).colorScheme.primary,
               ),
-              FadeAnimation(
-                child: Catchphrase(
-                  delay: Duration(milliseconds: 750),
-                ),
+              Catchphrase(
+                delay: Duration(milliseconds: 750),
               ),
             ],
           ),

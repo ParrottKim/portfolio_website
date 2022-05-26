@@ -18,17 +18,10 @@ class Speciality extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(
-      mobile: SpecialityGridView(
-        delay: delay,
-        crossAxisCount: 1,
-        mainAxisExtent: 170.0,
-      ),
-      desktop: SpecialityGridView(
-        delay: delay,
-        crossAxisCount: 3,
-        mainAxisExtent: 120.0,
-      ),
+    return SpecialityGridView(
+      delay: delay,
+      crossAxisCount: 1,
+      mainAxisExtent: Responsive.isMobile(context) ? 150.0 : 120.0,
     );
   }
 }

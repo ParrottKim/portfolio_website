@@ -1,7 +1,7 @@
-class LanguageModel {
+class TechModel {
   final String? asset, title;
 
-  LanguageModel({
+  TechModel({
     this.asset,
     this.title,
   });

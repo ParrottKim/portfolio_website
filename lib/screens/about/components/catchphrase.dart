@@ -49,7 +49,7 @@ class Catchphrase extends StatelessWidget {
               fontWeight: FontWeight.w900,
               color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
             ),
-          )
+          ),
         ],
       ),
     );

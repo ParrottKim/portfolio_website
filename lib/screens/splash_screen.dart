@@ -15,11 +15,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  late AnimationController _controller;
-  late Animation<double> _animation;
-
-  final List _images = const [
-    AssetImage('assets/icons/parrot.png'),
+  final List _images = [
     AssetImage('assets/images/profile_image.png'),
     AssetImage('assets/images/background1.jpg'),
     AssetImage('assets/images/background2.jpg'),

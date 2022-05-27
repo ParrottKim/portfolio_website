@@ -91,7 +91,7 @@ class _TechCircularCardState extends State<TechCircularCard>
           _controller.reverse();
         }
       },
-      borderRadius: BorderRadius.all(Radius.circular(40.0)),
+      borderRadius: BorderRadius.circular(40.0),
       child: AnimatedBuilder(
         animation: _controller,
         builder: (context, child) => JustTheTooltip(
@@ -111,7 +111,7 @@ class _TechCircularCardState extends State<TechCircularCard>
                 sides: 0,
                 width: _animation.value - 2.0,
                 height: _animation.value - 2.0,
-                color: Colors.teal,
+                color: Theme.of(context).colorScheme.secondary,
                 isRepeat: false,
                 child: SizedBox(),
               ),
@@ -123,8 +123,8 @@ class _TechCircularCardState extends State<TechCircularCard>
                   width: _animation.value,
                   height: _animation.value,
                   decoration: BoxDecoration(
-                    color: Colors.teal,
-                    borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius: BorderRadius.circular(40.0),
                   ),
                   child: SvgPicture.asset(
                     widget.language.asset!,

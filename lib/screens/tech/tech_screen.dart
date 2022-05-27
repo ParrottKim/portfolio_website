@@ -8,7 +8,7 @@ import 'package:portfolio_website/screens/tech/components/header.dart';
 import 'package:portfolio_website/screens/tech/components/techs.dart';
 
 class TechScreen extends StatelessWidget {
-  List languages = [
+  final List languages = [
     TechModel(
       asset: 'assets/icons/flutter.svg',
       title: 'Flutter',
@@ -23,7 +23,7 @@ class TechScreen extends StatelessWidget {
     ),
   ];
 
-  List databases = [
+  final List databases = [
     TechModel(
       asset: 'assets/icons/firebase.svg',
       title: 'Firebase',
@@ -54,7 +54,7 @@ class TechScreen extends StatelessWidget {
     ),
   ];
 
-  List tools = [
+  final List tools = [
     TechModel(
       asset: 'assets/icons/visualstudiocode.svg',
       title: 'Visual Studio Code',
@@ -73,6 +73,8 @@ class TechScreen extends StatelessWidget {
     ),
   ];
 
+  TechScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -85,7 +87,7 @@ class TechScreen extends StatelessWidget {
         textBaseline: TextBaseline.ideographic,
         children: [
           Subtitle(
-            text: 'TECHNOLOGIES',
+            text: 'TECH STACK',
             delay: Duration(milliseconds: 500),
             size: Responsive.isDesktop(context) ? 60.0 : 46.0,
             color: Theme.of(context).colorScheme.primary,
@@ -137,6 +139,7 @@ class TechScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      SizedBox(height: 20.0),
                       Row(
                         children: [
                           Header(

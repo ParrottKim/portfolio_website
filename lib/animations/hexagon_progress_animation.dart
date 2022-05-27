@@ -18,7 +18,7 @@ class HexagonProgressAnimation extends StatefulWidget {
     this.child,
     this.delay = const Duration(milliseconds: 0),
     this.duration = const Duration(milliseconds: 500),
-    this.barColor = Colors.teal,
+    this.barColor = Colors.red,
     this.size,
     this.strokeWidth = 20.0,
     this.image,
@@ -73,11 +73,11 @@ class _HexagonProgressAnimationState extends State<HexagonProgressAnimation>
             border: DynamicBorderSide(
               style: BorderStyle.solid,
               width: widget.strokeWidth,
-              color: Colors.teal,
+              color: Theme.of(context).colorScheme.secondary,
               gradient: LinearGradient(
                 colors: [
-                  Colors.teal[200]!,
-                  Colors.teal,
+                  Theme.of(context).colorScheme.onSecondary,
+                  Theme.of(context).colorScheme.secondary,
                 ],
               ),
               begin: 0.toPercentLength,

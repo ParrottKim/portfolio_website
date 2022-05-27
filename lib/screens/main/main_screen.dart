@@ -8,6 +8,7 @@ import 'package:portfolio_website/screens/about/about_screen.dart';
 import 'package:portfolio_website/screens/home/home_screen.dart';
 import 'package:portfolio_website/screens/main/components/navigation_appbar.dart';
 import 'package:portfolio_website/screens/main/components/navigation_drawer.dart';
+import 'package:portfolio_website/screens/project/project_screen.dart';
 import 'package:portfolio_website/screens/tech/tech_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -56,12 +57,14 @@ class _MainScreenState extends State<MainScreen> {
             HomeScreen(),
             AboutScreen(),
             TechScreen(),
+            ProjectScreen(),
           ],
         ),
         floatingActionButton: SpeedDial(
-          animatedIcon: AnimatedIcons.menu_close,
+          icon: Icons.more_horiz,
+          activeIcon: Icons.close,
           foregroundColor: Colors.white,
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
           children: [
             SpeedDialChild(
               foregroundColor: Colors.white,

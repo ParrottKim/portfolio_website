@@ -44,6 +44,7 @@ dependencies:
   flutter_speed_dial: ^4.2.0
   flutter_svg: ^1.0.3
   just_the_tooltip: ^0.0.11+2
+  clay_containers: ^0.3.2
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/translations/
+    - assets/projects/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

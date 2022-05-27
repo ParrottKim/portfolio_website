@@ -19,6 +19,8 @@ class _SplashScreenState extends State<SplashScreen> {
     AssetImage('assets/images/profile_image.png'),
     AssetImage('assets/images/background1.jpg'),
     AssetImage('assets/images/background2.jpg'),
+    AssetImage('assets/projects/ignite.png'),
+    AssetImage('assets/projects/portfolio.png'),
   ];
 
   Future<void> _loadImage(ImageProvider provider) {

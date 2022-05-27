@@ -35,11 +35,11 @@ class Subtitle extends StatelessWidget {
               height: 4.0,
               width: 50.0,
               decoration: BoxDecoration(
-                color: Colors.teal,
+                color: Theme.of(context).colorScheme.secondary,
                 gradient: LinearGradient(
                   colors: [
-                    Colors.teal[200]!,
-                    Colors.teal,
+                    Theme.of(context).colorScheme.onSecondary,
+                    Theme.of(context).colorScheme.secondary,
                   ],
                 ),
               ),

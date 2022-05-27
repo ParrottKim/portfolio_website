@@ -21,7 +21,7 @@ class Speciality extends StatelessWidget {
     return SpecialityGridView(
       delay: delay,
       crossAxisCount: 1,
-      mainAxisExtent: Responsive.isMobile(context) ? 150.0 : 120.0,
+      mainAxisExtent: Responsive.isMobile(context) ? 160.0 : 120.0,
     );
   }
 }

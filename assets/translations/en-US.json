@@ -10,5 +10,8 @@
   "about2-3-1": "Thinking about scalability\nfor better outcomes.",
   "tech1": "Here, look at the things I got.",
   "project1-1": "Portfolio website fully built with Flutter Web.",
-  "project1-2": "I tried to put a lot of features, such as responsive, single-page, various animations, providers and localizations."
+  "project1-2": "I tried to put a lot of features, such as responsive, single-page, various animations, providers and localizations.",
+  "project2-1": "Cross-platform mobile application for game user matching.",
+  "project2-2": "This is the first flutter application that I developed.",
+  "project2-3": "I learned how to use Firebase's Authentication, Firestore Database, and Storage."
 }

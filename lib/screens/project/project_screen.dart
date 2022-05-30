@@ -42,7 +42,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
       Projects(
         asset: 'assets/projects/portfolio.png',
         title: 'Porfolio Website',
-        subtitle: '${'project1-1'.tr()}\n${'project1-2'.tr()}',
+        subtitle: '${'project1-1'.tr()}\n\n${'project1-2'.tr()}',
         techs: [
           TechModel(
             asset: 'assets/icons/flutter.svg',
@@ -53,7 +53,8 @@ class _ProjectScreenState extends State<ProjectScreen> {
       Projects(
         asset: 'assets/projects/ignite.png',
         title: 'Ignite',
-        subtitle: '${'project2-1'.tr()}\n${'project2-2'.tr()}',
+        subtitle:
+            '${'project2-1'.tr()}\n\n${'project2-2'.tr()}\n${'project2-3'.tr()}',
         techs: [
           TechModel(
             asset: 'assets/icons/flutter.svg',
@@ -101,6 +102,7 @@ class _ProjectScreenState extends State<ProjectScreen> {
                     child: ParallaxArea(
                       child: PageView.builder(
                         controller: _pageController,
+                        itemCount: _pages.length,
                         itemBuilder: (context, index) => _pages[index],
                       ),
                     ),

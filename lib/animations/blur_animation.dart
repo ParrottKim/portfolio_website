@@ -64,7 +64,6 @@ class _BlurAnimationState extends State<BlurAnimation>
                   offset:
                       Offset(_opacityAnimation.value, _opacityAnimation.value),
                   child: Container(
-                    margin: EdgeInsets.only(top: 1.0, left: 1.0),
                     decoration: BoxDecoration(
                       color: Theme.of(context)
                           .scaffoldBackgroundColor

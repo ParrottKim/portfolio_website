@@ -4,14 +4,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 ThemeData light = ThemeData(
   fontFamily: 'Barlow Semi Condensed',
   brightness: Brightness.light,
-  primarySwatch: Colors.red,
+  primarySwatch: Colors.teal,
   colorScheme: ColorScheme.fromSwatch(
     brightness: Brightness.light,
     backgroundColor: Colors.white,
   ).copyWith(
     primary: Colors.black,
-    secondary: Color(0xFF8D021F),
-    onSecondary: Color(0xFFEE6484),
+    secondary: Colors.teal,
+    onSecondary: Colors.teal[200],
     tertiary: Colors.white,
   ),
   textTheme: TextTheme().apply(
@@ -19,7 +19,7 @@ ThemeData light = ThemeData(
     displayColor: Colors.grey[850],
   ),
   buttonTheme: ButtonThemeData(
-    buttonColor: Color(0xFF8D021F),
+    buttonColor: Colors.teal,
     textTheme: ButtonTextTheme.primary,
   ),
   listTileTheme: ListTileThemeData(
@@ -33,14 +33,14 @@ ThemeData light = ThemeData(
 ThemeData dark = ThemeData(
   fontFamily: 'Barlow Semi Condensed',
   brightness: Brightness.dark,
-  primarySwatch: Colors.red,
+  primarySwatch: Colors.teal,
   colorScheme: ColorScheme.fromSwatch(
     brightness: Brightness.dark,
     backgroundColor: Colors.white,
   ).copyWith(
     primary: Colors.white,
-    secondary: Color(0xFF8D021F),
-    onSecondary: Color(0xFFEE6484),
+    secondary: Colors.teal,
+    onSecondary: Colors.teal[200],
     tertiary: Colors.black,
   ),
   textTheme: TextTheme().apply(
@@ -48,7 +48,7 @@ ThemeData dark = ThemeData(
     displayColor: Colors.white60,
   ),
   buttonTheme: ButtonThemeData(
-    buttonColor: Color(0xFF8D021F),
+    buttonColor: Colors.teal,
     textTheme: ButtonTextTheme.primary,
   ),
   listTileTheme: ListTileThemeData(

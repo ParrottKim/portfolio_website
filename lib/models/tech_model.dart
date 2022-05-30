@@ -1,8 +1,8 @@
 class TechModel {
-  final String? asset, title;
+  final String asset, title;
 
   TechModel({
-    this.asset,
-    this.title,
+    required this.asset,
+    required this.title,
   });
 }

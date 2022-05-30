@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/hexagon_progress_animation.dart';
 import 'package:portfolio_website/animations/parallax_area.dart';
+import 'package:portfolio_website/models/tech_model.dart';
 import 'package:portfolio_website/responsive.dart';
 import 'package:portfolio_website/screens/main/components/main_logo.dart';
 import 'package:portfolio_website/screens/main/components/subtitle.dart';
@@ -20,20 +21,6 @@ class _ProjectScreenState extends State<ProjectScreen> {
   final Duration _animationDuration = const Duration(milliseconds: 500);
   final Cubic _curve = Curves.ease;
   late double _pageOffset;
-
-  final List _pages = [
-    Projects(
-      asset: 'assets/projects/portfolio.png',
-      title: 'Porfolio',
-      subtitle: '${'project1-1'.tr()}\n${'project1-2'.tr()}',
-    ),
-    Projects(
-      asset: 'assets/projects/ignite.png',
-      title: 'Ignite',
-      subtitle: '${'project1-1'.tr()}\n${'project1-2'.tr()}',
-    ),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -51,6 +38,35 @@ class _ProjectScreenState extends State<ProjectScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final List _pages = [
+      Projects(
+        asset: 'assets/projects/portfolio.png',
+        title: 'Porfolio Website',
+        subtitle: '${'project1-1'.tr()}\n${'project1-2'.tr()}',
+        techs: [
+          TechModel(
+            asset: 'assets/icons/flutter.svg',
+            title: 'Flutter',
+          ),
+        ],
+      ),
+      Projects(
+        asset: 'assets/projects/ignite.png',
+        title: 'Ignite',
+        subtitle: '${'project2-1'.tr()}\n${'project2-2'.tr()}',
+        techs: [
+          TechModel(
+            asset: 'assets/icons/flutter.svg',
+            title: 'Flutter',
+          ),
+          TechModel(
+            asset: 'assets/icons/firebase.svg',
+            title: 'Firebase',
+          ),
+        ],
+      ),
+    ];
+
     final size = MediaQuery.of(context).size;
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -96,8 +112,10 @@ class _ProjectScreenState extends State<ProjectScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                     alignment: Alignment.centerLeft,
                     child: IconButton(
-                      icon:
-                          Icon(Icons.keyboard_arrow_left, color: Colors.white),
+                      icon: Icon(
+                        Icons.keyboard_arrow_left,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
                       onPressed: () => _pageController.previousPage(
                           duration: _animationDuration, curve: _curve),
                     ),
@@ -109,8 +127,10 @@ class _ProjectScreenState extends State<ProjectScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                     alignment: Alignment.centerRight,
                     child: IconButton(
-                      icon:
-                          Icon(Icons.keyboard_arrow_right, color: Colors.white),
+                      icon: Icon(
+                        Icons.keyboard_arrow_right,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
                       onPressed: () => _pageController.nextPage(
                           duration: _animationDuration, curve: _curve),
                     ),

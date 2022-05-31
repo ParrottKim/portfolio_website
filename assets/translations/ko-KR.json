@@ -13,5 +13,10 @@
   "project1-2": "반응형, 싱글 페이지, 다양한 애니메이션, 프로바이더, 현지화 등 많은 기능을 넣으려고 노력했습니다.",
   "project2-1": "게임 유저 매칭을 위한 크로스 플랫폼 모바일 애플리케이션입니다.",
   "project2-2": "제가 개발한 첫번째 플러터 애플리케이션입니다.",
-  "project2-3": "Firebase의 Authentication, Firestore Database 그리고 Storage를 사용하는 방법을 배웠습니다."
+  "project2-3": "Firebase의 Authentication, Firestore Database 그리고 Storage를 사용하는 방법을 배웠습니다.",
+  "project3-1": "Flutter로 개발한 반응형 애플리케이션입니다.",
+  "project3-2": "반응형 애플리케이션 개발에 친숙해지기 위한 예제 프로젝트입니다.",
+  "project3-3": "데스크탑과 웹 모두 지원합니다.",
+  "project4-1": "REST API 웹 서버 구축을 위한 예제 프로젝트입니다.",
+  "project4-2": "Node.js, Express를 이용하여 MariaDB에 접근할 수 있도록 구현했습니다."
 }

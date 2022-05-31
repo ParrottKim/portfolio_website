@@ -33,6 +33,10 @@ class TechScreen extends StatelessWidget {
       title: 'Node.js',
     ),
     TechModel(
+      asset: 'assets/icons/express.svg',
+      title: 'Express',
+    ),
+    TechModel(
       asset: 'assets/icons/mysql.svg',
       title: 'MySQL',
     ),
@@ -107,8 +111,8 @@ class TechScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 60.0),
-          Padding(
-            padding: !Responsive.isMobile(context)
+          Container(
+            margin: !Responsive.isMobile(context)
                 ? EdgeInsets.symmetric(horizontal: size.width * 0.07)
                 : EdgeInsets.zero,
             child: Responsive.isDesktop(context)
@@ -120,9 +124,11 @@ class TechScreen extends StatelessWidget {
                             text: 'Language',
                             delay: Duration(milliseconds: 1500),
                           ),
-                          Techs(
-                            delay: const Duration(milliseconds: 1750),
-                            techs: languages,
+                          Expanded(
+                            child: Techs(
+                              delay: const Duration(milliseconds: 1750),
+                              techs: languages,
+                            ),
                           ),
                         ],
                       ),
@@ -133,9 +139,11 @@ class TechScreen extends StatelessWidget {
                             text: 'Database / Services',
                             delay: Duration(milliseconds: 3500),
                           ),
-                          Techs(
-                            delay: const Duration(milliseconds: 3750),
-                            techs: databases,
+                          Expanded(
+                            child: Techs(
+                              delay: const Duration(milliseconds: 3750),
+                              techs: databases,
+                            ),
                           ),
                         ],
                       ),
@@ -146,9 +154,11 @@ class TechScreen extends StatelessWidget {
                             text: 'Tools',
                             delay: Duration(milliseconds: 5500),
                           ),
-                          Techs(
-                            delay: const Duration(milliseconds: 5750),
-                            techs: tools,
+                          Expanded(
+                            child: Techs(
+                              delay: const Duration(milliseconds: 5750),
+                              techs: tools,
+                            ),
                           ),
                         ],
                       ),

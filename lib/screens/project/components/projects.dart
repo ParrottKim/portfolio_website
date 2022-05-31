@@ -1,24 +1,25 @@
+import 'dart:html' as html;
+
 import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio_website/animations/blur_animation.dart';
-import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/animations/parallax_widget.dart';
+import 'package:portfolio_website/models/project_model.dart';
 import 'package:portfolio_website/models/tech_model.dart';
+import 'package:portfolio_website/providers/theme_provider.dart';
 import 'package:portfolio_website/responsive.dart';
+import 'package:provider/provider.dart';
 
 class Projects extends StatelessWidget {
   final Duration delay;
-  final String asset, title, subtitle;
-  final List<TechModel> techs;
+  final ProjectModel project;
 
   const Projects({
     Key? key,
     this.delay = const Duration(milliseconds: 1500),
-    required this.asset,
-    required this.title,
-    required this.subtitle,
-    required this.techs,
+    required this.project,
   }) : super(key: key);
 
   @override
@@ -36,41 +37,75 @@ class Projects extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           child: ParallaxWidget(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: !Responsive.isMobile(context)
+                  ? const EdgeInsets.all(32.0)
+                  : const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            project.title,
+                            maxLines: 2,
+                            style: TextStyle(
+                              fontFamily: 'SCDREAM',
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(MdiIcons.github),
+                            splashRadius: 24.0,
+                            onPressed: () {
+                              html.window.open(project.link, '_blank');
+                            },
+                          ),
+                          if (project.demo != null)
+                            IconButton(
+                              icon: Icon(MdiIcons.export),
+                              splashRadius: 24.0,
+                              onPressed: () {
+                                html.window.open(project.demo!, '_blank');
+                              },
+                            ),
+                        ],
+                      )
+                    ],
+                  ),
                   Expanded(
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        title,
+                        project.subtitle,
                         style: TextStyle(
                           fontFamily: 'SCDREAM',
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Text(
-                      subtitle,
-                      style: TextStyle(
-                        fontFamily: 'SCDREAM',
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
-                  ),
-                  TechListView(techs: techs),
+                  TechListView(techs: project.techs),
                 ],
               ),
             ),
             background: BlurAnimation(
               borderRadius: 10.0,
+              offset:
+                  Provider.of<ThemeProvider>(context, listen: false).darkTheme
+                      ? 0.7
+                      : 0.9,
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(asset),
+                    image: AssetImage(project.asset),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -98,7 +133,7 @@ class TechListView extends StatelessWidget {
         itemBuilder: (context, index) => Card(
           color: Theme.of(context).primaryColor,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -108,7 +143,7 @@ class TechListView extends StatelessWidget {
                   width: 16.0,
                   height: 16.0,
                 ),
-                SizedBox(width: 10.0),
+                SizedBox(width: 6.0),
                 Text(
                   techs[index].title,
                   style: TextStyle(

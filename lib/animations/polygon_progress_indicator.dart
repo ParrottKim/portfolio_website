@@ -91,10 +91,10 @@ class _PolygonProgressIndicatorState extends State<PolygonProgressIndicator>
     _endAnimation = Tween<double>(begin: 0.0, end: 100.0).animate(_controller);
 
     Future.delayed(widget.delay, () {
-      setState(() {
-        _isVisible = true;
-      });
       if (mounted) {
+        setState(() {
+          _isVisible = true;
+        });
         _controller.forward();
         _controller.addListener(() {
           if (_controller.isCompleted) {

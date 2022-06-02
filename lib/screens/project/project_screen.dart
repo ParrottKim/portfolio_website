@@ -84,10 +84,23 @@ class _ProjectScreenState extends State<ProjectScreen> {
         demo: 'https://flutter-responsive-dashb-6b370.web.app',
       ),
       ProjectModel(
+        asset: 'assets/images/background2.jpg',
+        title: 'Bluetooth Example',
+        link: 'https://github.com/ParrottKim/bluetooth-example',
+        subtitle:
+            '${'project4-1'.tr()}\n\n${'project4-2'.tr()}\n${'project4-3'.tr()}',
+        techs: [
+          TechModel(
+            asset: 'assets/icons/flutter.svg',
+            title: 'Flutter',
+          ),
+        ],
+      ),
+      ProjectModel(
         asset: 'assets/images/background1.jpg',
         title: 'Node.js Server Example',
         link: 'https://github.com/ParrottKim/node-js-server-example',
-        subtitle: '${'project4-1'.tr()}\n\n${'project4-2'.tr()}',
+        subtitle: '${'project5-1'.tr()}\n\n${'project5-2'.tr()}',
         techs: [
           TechModel(
             asset: 'assets/icons/nodedotjs.svg',

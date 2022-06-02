@@ -14,9 +14,12 @@
   "project2-1": "Cross-platform mobile application for game user matching.",
   "project2-2": "The first flutter application that I developed.",
   "project2-3": "I learned how to use Firebase's Authentication, Firestore Database, and Storage.",
-  "project3-1": "Responsive application created with Flutter. Support Desktop & Web both.",
+  "project3-1": "Responsive application developed with Flutter.",
   "project3-2": "This is an example project for familiarize with responsive application development.",
   "project3-3": "It support desktop & web both.",
-  "project4-1": "An example project for building a REST API Web server.",
-  "project4-2": "It was implemented to access MariaDB using Node.js, Express."
+  "project4-1": "Bluetooth communication application developed width Flutter. Support Android only.",
+  "project4-2": "It was developed to communicate CAN bus with the vehicle's OBD in a mobile environment.",
+  "project4-3": "Support Android only.",
+  "project5-1": "An example project for building a REST API Web server.",
+  "project5-2": "It was implemented to access MariaDB using Node.js, Express."
 }

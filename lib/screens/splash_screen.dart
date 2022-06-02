@@ -21,6 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     AssetImage('assets/images/background2.jpg'),
     AssetImage('assets/projects/ignite.png'),
     AssetImage('assets/projects/portfolio.png'),
+    AssetImage('assets/projects/flutter_responsive_dashboard.png'),
   ];
 
   Future<void> _loadImage(ImageProvider provider) {

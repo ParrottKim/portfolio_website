@@ -17,6 +17,9 @@
   "project3-1": "Flutter로 개발한 반응형 애플리케이션입니다.",
   "project3-2": "반응형 애플리케이션 개발에 친숙해지기 위한 예제 프로젝트입니다.",
   "project3-3": "데스크탑과 웹 모두 지원합니다.",
-  "project4-1": "REST API 웹 서버 구축을 위한 예제 프로젝트입니다.",
-  "project4-2": "Node.js, Express를 이용하여 MariaDB에 접근할 수 있도록 구현했습니다."
+  "project4-1": "Flutter로 개발한 블루투스 통신 애플리케이션입니다",
+  "project4-2": "모바일 환경에서 차량의 OBD와 CAN 통신을 하기 위해서 개발했습니다.",
+  "project4-3": "안드로이드만 지원합니다.",
+  "project5-1": "REST API 웹 서버 구축을 위한 예제 프로젝트입니다.",
+  "project5-2": "Node.js, Express를 이용하여 MariaDB에 접근할 수 있도록 구현했습니다."
 }

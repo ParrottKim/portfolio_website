@@ -20,8 +20,8 @@ class Speciality extends StatelessWidget {
   Widget build(BuildContext context) {
     return SpecialityGridView(
       delay: delay,
-      crossAxisCount: 1,
-      mainAxisExtent: Responsive.isMobile(context) ? 160.0 : 120.0,
+      crossAxisCount: !Responsive.isMobile(context) ? 3 : 1,
+      mainAxisExtent: !Responsive.isMobile(context) ? 120.0 : 160.0,
     );
   }
 }
@@ -88,7 +88,6 @@ class SpecialityBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (!Responsive.isMobile(context))

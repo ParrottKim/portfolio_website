@@ -10,16 +10,13 @@ import 'package:portfolio_website/responsive.dart';
 import '../../../animations/linear_animaiton.dart';
 
 class Speciality extends StatelessWidget {
-  final Duration delay;
   const Speciality({
     Key? key,
-    required this.delay,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SpecialityGridView(
-      delay: delay,
       crossAxisCount: !Responsive.isMobile(context) ? 3 : 1,
       mainAxisExtent: !Responsive.isMobile(context) ? 120.0 : 160.0,
     );
@@ -27,12 +24,10 @@ class Speciality extends StatelessWidget {
 }
 
 class SpecialityGridView extends StatelessWidget {
-  final Duration delay;
   final int crossAxisCount;
   final double mainAxisExtent;
   const SpecialityGridView({
     Key? key,
-    required this.delay,
     this.crossAxisCount = 3,
     this.mainAxisExtent = 120.0,
   }) : super(key: key);
@@ -69,7 +64,7 @@ class SpecialityGridView extends StatelessWidget {
         mainAxisExtent: mainAxisExtent,
       ),
       itemBuilder: (context, index) => SpecialityBuilder(
-        delay: delay * (index + 1),
+        delay: Duration(milliseconds: 1000) * (index + 1),
         speciality: specialities[index],
       ),
     );

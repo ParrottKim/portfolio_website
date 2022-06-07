@@ -92,7 +92,7 @@ class Projects extends StatelessWidget {
                       ),
                     ),
                   ),
-                  TechListView(techs: project.techs),
+                  SkillListView(techs: project.techs),
                 ],
               ),
             ),
@@ -118,9 +118,9 @@ class Projects extends StatelessWidget {
   }
 }
 
-class TechListView extends StatelessWidget {
+class SkillListView extends StatelessWidget {
   final List<TechModel> techs;
-  const TechListView({Key? key, required this.techs}) : super(key: key);
+  const SkillListView({Key? key, required this.techs}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

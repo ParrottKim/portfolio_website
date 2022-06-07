@@ -22,6 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     AssetImage('assets/projects/ignite.png'),
     AssetImage('assets/projects/portfolio.png'),
     AssetImage('assets/projects/flutter_responsive_dashboard.png'),
+    AssetImage('assets/projects/bluetooth_example.png'),
   ];
 
   Future<void> _loadImage(ImageProvider provider) {
@@ -60,9 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
       await _loadImage(element);
     }
     await Future.delayed(
-      Duration(
-        milliseconds: 3000,
-      ),
+      Duration(milliseconds: 2000),
     );
     Navigator.pushReplacement(
       context,

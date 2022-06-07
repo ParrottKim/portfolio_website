@@ -22,6 +22,11 @@ ThemeData light = ThemeData(
     buttonColor: Colors.teal,
     textTheme: ButtonTextTheme.primary,
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(Colors.teal),
+    ),
+  ),
   listTileTheme: ListTileThemeData(
     textColor: Colors.grey[850],
     selectedTileColor: Colors.grey[200],
@@ -50,6 +55,11 @@ ThemeData dark = ThemeData(
   buttonTheme: ButtonThemeData(
     buttonColor: Colors.teal,
     textTheme: ButtonTextTheme.primary,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(Colors.teal),
+    ),
   ),
   listTileTheme: ListTileThemeData(
     textColor: Colors.white60,

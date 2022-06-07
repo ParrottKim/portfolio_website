@@ -4,16 +4,12 @@ import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/responsive.dart';
 
 class Catchphrase extends StatelessWidget {
-  final Duration delay;
-  const Catchphrase({
-    Key? key,
-    this.delay = const Duration(milliseconds: 1000),
-  }) : super(key: key);
+  const Catchphrase({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FadeAnimation(
-      delay: delay,
+      delay: Duration(milliseconds: 1000),
       duration: Duration(milliseconds: 500),
       offset: Offset(-20.0, 0.0),
       child: Row(

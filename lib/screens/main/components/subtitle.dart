@@ -4,13 +4,11 @@ import 'package:portfolio_website/animations/linear_animaiton.dart';
 
 class Subtitle extends StatelessWidget {
   final String text;
-  final Duration delay;
   final double size;
   final Color color;
   const Subtitle({
     Key? key,
     required this.text,
-    this.delay = const Duration(milliseconds: 1000),
     this.size = 40.0,
     this.color = Colors.white,
   }) : super(key: key);
@@ -18,7 +16,7 @@ class Subtitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LinearAnimation(
-      delay: delay,
+      delay: Duration(milliseconds: 1000),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 16.0),
         child: Column(

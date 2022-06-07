@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeProvider>(
         builder: (context, provider, child) {
           return MaterialApp(
-            title: 'Flutter Demo',
+            title: 'Parrott Kim',
             theme: provider.darkTheme ? dark : light,
             scrollBehavior: CustomScrollBehavior(),
             localizationsDelegates: context.localizationDelegates,

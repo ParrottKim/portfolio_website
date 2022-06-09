@@ -17,8 +17,8 @@
 ## :clipboard: Sections
 :heavy_check_mark: Home  
 :heavy_check_mark: About  
-:construction: Techs  
-:construction: Projects  
+:heavy_check_mark: Techs  
+:heavy_check_mark: Projects  
 :construction: Contact  
 
 Leave a :star: if you like it!

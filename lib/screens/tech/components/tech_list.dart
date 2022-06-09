@@ -7,69 +7,69 @@ import 'package:portfolio_website/screens/tech/components/techs.dart';
 class TechList extends StatelessWidget {
   final List languages = [
     TechModel(
-      asset: 'assets/icons/flutter.svg',
+      asset: 'assets/icons/techs/flutter.svg',
       title: 'Flutter',
     ),
     TechModel(
-      asset: 'assets/icons/csharp.svg',
+      asset: 'assets/icons/techs/csharp.svg',
       title: 'C#',
     ),
     TechModel(
-      asset: 'assets/icons/javascript.svg',
+      asset: 'assets/icons/techs/javascript.svg',
       title: 'Javascript',
     ),
   ];
 
   final List databases = [
     TechModel(
-      asset: 'assets/icons/firebase.svg',
+      asset: 'assets/icons/techs/firebase.svg',
       title: 'Firebase',
     ),
     TechModel(
-      asset: 'assets/icons/nodedotjs.svg',
+      asset: 'assets/icons/techs/nodedotjs.svg',
       title: 'Node.js',
     ),
     TechModel(
-      asset: 'assets/icons/express.svg',
+      asset: 'assets/icons/techs/express.svg',
       title: 'Express',
     ),
     TechModel(
-      asset: 'assets/icons/mysql.svg',
+      asset: 'assets/icons/techs/mysql.svg',
       title: 'MySQL',
     ),
     TechModel(
-      asset: 'assets/icons/mariadb.svg',
+      asset: 'assets/icons/techs/mariadb.svg',
       title: 'MariaDB',
     ),
     TechModel(
-      asset: 'assets/icons/microsoftsqlserver.svg',
+      asset: 'assets/icons/techs/microsoftsqlserver.svg',
       title: 'SQL Server',
     ),
     TechModel(
-      asset: 'assets/icons/googlecloud.svg',
+      asset: 'assets/icons/techs/googlecloud.svg',
       title: 'Google Cloud',
     ),
     TechModel(
-      asset: 'assets/icons/json.svg',
+      asset: 'assets/icons/techs/json.svg',
       title: 'REST API',
     ),
   ];
 
   final List tools = [
     TechModel(
-      asset: 'assets/icons/visualstudiocode.svg',
+      asset: 'assets/icons/techs/visualstudiocode.svg',
       title: 'Visual Studio Code',
     ),
     TechModel(
-      asset: 'assets/icons/visualstudio.svg',
+      asset: 'assets/icons/techs/visualstudio.svg',
       title: 'Visual Studio',
     ),
     TechModel(
-      asset: 'assets/icons/androidstudio.svg',
+      asset: 'assets/icons/techs/androidstudio.svg',
       title: 'Android Studio',
     ),
     TechModel(
-      asset: 'assets/icons/xcode.svg',
+      asset: 'assets/icons/techs/xcode.svg',
       title: 'Xcode',
     ),
   ];

@@ -100,7 +100,7 @@ class _TechCircularCardState extends State<TechCircularCard>
           tailBaseWidth: 16.0,
           content: Padding(
             padding: EdgeInsets.all(8.0),
-            child: Text(widget.language.title!),
+            child: Text(widget.language.title),
           ),
           child: Stack(
             alignment: Alignment.center,
@@ -127,7 +127,7 @@ class _TechCircularCardState extends State<TechCircularCard>
                     borderRadius: BorderRadius.circular(40.0),
                   ),
                   child: SvgPicture.asset(
-                    widget.language.asset!,
+                    widget.language.asset,
                     width: _animation.value - 28.0,
                     height: _animation.value - 28.0,
                     color: Colors.white,

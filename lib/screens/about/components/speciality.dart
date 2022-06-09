@@ -172,14 +172,15 @@ class SpecialityTitle extends StatelessWidget {
       text,
       textAlign: TextAlign.center,
       style: context.locale == Locale('en', 'US')
-          ? GoogleFonts.bebasNeue(
+          ? TextStyle(
+              fontFamily: 'Bebas Neue',
+              fontWeight: FontWeight.bold,
               fontSize: 28.0,
-              fontWeight: FontWeight.w900,
             )
           : TextStyle(
               fontFamily: 'SCDREAM',
-              fontSize: 24.0,
               fontWeight: FontWeight.w900,
+              fontSize: 24.0,
             ),
     );
   }

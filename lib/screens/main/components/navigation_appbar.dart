@@ -95,7 +95,7 @@ class _AppBarItemListState extends State<AppBarItemList> {
               children: [
                 Text(
                   _sectionsName[index],
-                  style: GoogleFonts.roboto(
+                  style: TextStyle(
                     color: _isHovering[index]
                         ? Theme.of(context).colorScheme.primary.withOpacity(0.7)
                         : Theme.of(context).colorScheme.primary,

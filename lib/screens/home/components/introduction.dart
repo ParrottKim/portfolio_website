@@ -22,7 +22,8 @@ class Introduction extends StatelessWidget {
           offset: Offset(-10.0, 0.0),
           child: Text(
             'MOBILE APP DEVELOPER',
-            style: GoogleFonts.bebasNeue(
+            style: TextStyle(
+              fontFamily: 'Bebas Neue',
               fontSize: Responsive.isDesktop(context) ? 30.0 : 24.0,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.secondary,
@@ -35,7 +36,8 @@ class Introduction extends StatelessWidget {
           offset: Offset(-10.0, 0.0),
           child: Text(
             'PARROTT KIM',
-            style: GoogleFonts.bebasNeue(
+            style: TextStyle(
+              fontFamily: 'Bebas Neue',
               fontSize: Responsive.isDesktop(context) ? 70.0 : 60.0,
               fontWeight: FontWeight.bold,
               color: Theme.of(context).colorScheme.primary,

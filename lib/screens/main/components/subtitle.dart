@@ -24,7 +24,8 @@ class Subtitle extends StatelessWidget {
           children: [
             Text(
               text,
-              style: GoogleFonts.bebasNeue(
+              style: TextStyle(
+                fontFamily: 'Bebas Neue',
                 fontSize: size,
                 fontWeight: FontWeight.w900,
               ),

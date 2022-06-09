@@ -45,7 +45,7 @@ class _ProjectListState extends State<ProjectList> {
         subtitle: '${'project1-1'.tr()}\n\n${'project1-2'.tr()}',
         techs: [
           TechModel(
-            asset: 'assets/icons/flutter.svg',
+            asset: 'assets/icons/techs/flutter.svg',
             title: 'Flutter',
           ),
         ],
@@ -58,11 +58,11 @@ class _ProjectListState extends State<ProjectList> {
             '${'project2-1'.tr()}\n\n${'project2-2'.tr()}\n${'project2-3'.tr()}',
         techs: [
           TechModel(
-            asset: 'assets/icons/flutter.svg',
+            asset: 'assets/icons/techs/flutter.svg',
             title: 'Flutter',
           ),
           TechModel(
-            asset: 'assets/icons/firebase.svg',
+            asset: 'assets/icons/techs/firebase.svg',
             title: 'Firebase',
           ),
         ],
@@ -75,7 +75,7 @@ class _ProjectListState extends State<ProjectList> {
             '${'project3-1'.tr()}\n\n${'project3-2'.tr()}\n${'project3-3'.tr()}',
         techs: [
           TechModel(
-            asset: 'assets/icons/flutter.svg',
+            asset: 'assets/icons/techs/flutter.svg',
             title: 'Flutter',
           ),
         ],
@@ -89,7 +89,7 @@ class _ProjectListState extends State<ProjectList> {
             '${'project4-1'.tr()}\n\n${'project4-2'.tr()}\n${'project4-3'.tr()}',
         techs: [
           TechModel(
-            asset: 'assets/icons/flutter.svg',
+            asset: 'assets/icons/techs/flutter.svg',
             title: 'Flutter',
           ),
         ],
@@ -101,19 +101,19 @@ class _ProjectListState extends State<ProjectList> {
         subtitle: '${'project5-1'.tr()}\n\n${'project5-2'.tr()}',
         techs: [
           TechModel(
-            asset: 'assets/icons/nodedotjs.svg',
+            asset: 'assets/icons/techs/nodedotjs.svg',
             title: 'Node.js',
           ),
           TechModel(
-            asset: 'assets/icons/express.svg',
+            asset: 'assets/icons/techs/express.svg',
             title: 'Express',
           ),
           TechModel(
-            asset: 'assets/icons/mariadb.svg',
+            asset: 'assets/icons/techs/mariadb.svg',
             title: 'MariaDB',
           ),
           TechModel(
-            asset: 'assets/icons/json.svg',
+            asset: 'assets/icons/techs/json.svg',
             title: 'REST API',
           ),
         ],

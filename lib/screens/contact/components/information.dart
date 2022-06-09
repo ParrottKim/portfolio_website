@@ -24,7 +24,8 @@ class InformationSmallScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: size.height * 0.15),
+      padding: EdgeInsets.symmetric(
+          horizontal: size.width * 0.15, vertical: size.height * 0.1),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,58 +33,46 @@ class InformationSmallScreen extends StatelessWidget {
           FadeAnimation(
             delay: Duration(milliseconds: 1500),
             offset: Offset(-10.0, 0.0),
-            child: Container(
-              alignment: Alignment.centerLeft,
-              width: size.width * 0.4,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Based in',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text('Seoul, South Korea'),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Based in',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('Seoul, South Korea'),
+              ],
             ),
           ),
           FadeAnimation(
             delay: Duration(milliseconds: 1750),
             offset: Offset(0.0, 10.0),
-            child: Container(
-              alignment: Alignment.centerLeft,
-              width: size.width * 0.4,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Email',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text('parrottkim21@gmail.com'),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Email',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('parrottkim21@gmail.com'),
+              ],
             ),
           ),
           FadeAnimation(
             delay: Duration(milliseconds: 2000),
             offset: Offset(0.0, 10.0),
-            child: Container(
-              alignment: Alignment.centerLeft,
-              width: size.width * 0.4,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'KakaoTalk',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text('parrottkim'),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'KakaoTalk',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('parrottkim'),
+              ],
             ),
           ),
         ],

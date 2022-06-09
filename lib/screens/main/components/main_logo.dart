@@ -27,7 +27,8 @@ class MainLogo extends StatelessWidget {
             const SizedBox(width: 10.0),
             Text(
               'PARROTT KIM',
-              style: GoogleFonts.bebasNeue(
+              style: TextStyle(
+                fontFamily: 'Bebas Neue',
                 fontSize: size,
                 fontWeight: FontWeight.bold,
               ),

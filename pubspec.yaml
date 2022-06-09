@@ -44,6 +44,7 @@ dependencies:
   flutter_svg: ^1.0.3
   just_the_tooltip: ^0.0.11+2
   clay_containers: ^0.3.2
+  pdfx: ^2.0.1+2
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +70,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/documents/
     - assets/icons/
+    - assets/icons/techs/
+    - assets/icons/websites/
     - assets/images/
     - assets/translations/
     - assets/projects/
@@ -105,3 +109,6 @@ flutter:
           weight: 800
         - asset: assets/fonts/SCDREAM9.otf
           weight: 900
+    - family: Bebas Neue
+      fonts:
+        - asset: assets/fonts/BebasNeue-Regular.ttf

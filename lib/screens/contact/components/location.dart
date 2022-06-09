@@ -1,8 +1,10 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/responsive.dart';
+import 'package:portfolio_website/screens/resume/resume_screen.dart';
 
 class Location extends StatelessWidget {
   final Duration delay;
@@ -38,7 +40,7 @@ class LocationSmallScreen extends StatelessWidget {
             delay: Duration(milliseconds: 1000),
             offset: Offset(0.0, 0.0),
             child: Container(
-              constraints: BoxConstraints(maxHeight: 160.0),
+              constraints: BoxConstraints(maxHeight: 360.0),
               child: Stack(
                 alignment: Alignment.centerLeft,
                 children: [
@@ -67,12 +69,15 @@ class LocationSmallScreen extends StatelessWidget {
                 children: [
                   Text(
                     'THANKS FOR READING!',
-                    style: GoogleFonts.bebasNeue(
+                    style: TextStyle(
+                      fontFamily: 'Bebas Neue',
                       fontSize: 48.0,
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => html.window.open(
+                        'https://drive.google.com/file/d/1zBlf0heHU1T4_uzzfeKWK-lfJJNoCwH2/view?usp=sharing',
+                        '_blank'),
                     child: Text(
                       'See Resume',
                       style: TextStyle(fontFamily: 'SCDREAM'),
@@ -133,12 +138,15 @@ class LocationLargeScreen extends StatelessWidget {
                 children: [
                   Text(
                     'THANKS FOR READING!',
-                    style: GoogleFonts.bebasNeue(
+                    style: TextStyle(
+                      fontFamily: 'Bebas Neue',
                       fontSize: 64.0,
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => html.window.open(
+                        'https://drive.google.com/file/d/1zBlf0heHU1T4_uzzfeKWK-lfJJNoCwH2/view?usp=sharing',
+                        '_blank'),
                     child: Text(
                       'See Resume',
                       style: TextStyle(fontFamily: 'SCDREAM'),

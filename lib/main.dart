@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/providers/screen_provider.dart';
 import 'package:portfolio_website/providers/theme_provider.dart';
-import 'package:portfolio_website/screens/resume/resume_screen.dart';
 import 'package:portfolio_website/screens/splash_screen.dart';
 import 'package:portfolio_website/services/scroll_behavior.dart';
 import 'package:provider/provider.dart';

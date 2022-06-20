@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/responsive.dart';
-import 'package:portfolio_website/screens/resume/resume_screen.dart';
 
 class Location extends StatelessWidget {
   final Duration delay;

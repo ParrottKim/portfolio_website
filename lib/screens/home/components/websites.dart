@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
 import 'dart:html' as html;
 
+import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:portfolio_website/animations/fade_animation.dart';
 import 'package:portfolio_website/responsive.dart';
 

@@ -19,6 +19,6 @@
 :heavy_check_mark: About  
 :heavy_check_mark: Techs  
 :heavy_check_mark: Projects  
-:construction: Contact  
+:heavy_check_mark: Contact  
 
 Leave a :star: if you like it!
